@@ -94,15 +94,15 @@ const MenuItem = styled(animated(Link))`
   border-radius: 3em;
   border-color: ${theme.colors.primary};
   border-width: ${(props) => (props.cta ? "0.9px" : "0")};
-  padding: 0.4em ${(props) => (props.cta ? "1.5em" : "1em")};
+  padding: 0.4em ${(props) => (props.cta ? "1.0em" : "0em")};
   height: calc(100% - 2em);
-  font-size: 0.7em;
+  font-size: 0.8em;
   font-weight: ${(props) => (props.selected ? "800" : "400")};
   text-decoration: none;
   font-family: "Satoshi Regular";
   text-transform: uppercase;
   margin-right: 2em;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.0em;
   cursor: pointer;
   &:hover {
     color: #32704E;

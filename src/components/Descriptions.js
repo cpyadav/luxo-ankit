@@ -24,9 +24,10 @@ const DescriptionContainer = styled.div`
 const Description = styled(animated.p)`
   color: ${theme.colors.primary};
   font-family: "Satoshi Light";
-  font-size: ${(props) => (props.small ? "1.6em" : "1.7em")};
+  font-size: ${(props) => (props.small ? "1.4em" : "1.5em")};
   text-align: ${(props) => (props.flip ? "left" : "right")};
   white-space: pre-line;
+  margin-left:70px;
 `;
 
 const Book = styled(animated.button)`
