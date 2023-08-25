@@ -75,7 +75,7 @@ const Name = styled(animated.p)`
   font-family: "Giovanna";
   font-size: 1.7em;
   text-align: right;
-  margin-bottom:60px;
+  margin-bottom:50px;
 `;
 
 const parts = [
