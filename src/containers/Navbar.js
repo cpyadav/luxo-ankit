@@ -11,6 +11,7 @@ import bg from "../assets/bg.mp4";
 
 import { useNavigate, Link, useLocation } from "react-router-dom";
 import { animated, easings, useSpring, useSprings } from "@react-spring/web";
+import mobilehamber from "../assets/mobilehamber.svg";
 
 const Container = styled.div`
   z-index: 999;
@@ -22,6 +23,9 @@ const Container = styled.div`
   height: 14vh;
   transition: all ease-in 200ms;
   overflow: hidden;
+  @media (max-width: 768px) {
+    height: 20vh; 
+  }
 `;
 
 const BGVideo = styled.video`
@@ -31,6 +35,9 @@ const BGVideo = styled.video`
   width: 100%;
   height: 100vh;
   object-fit: cover;
+  @media (max-width: 768px) {
+    height: auto; 
+  }
 `;
 
 const Content = styled.div`
@@ -43,21 +50,36 @@ const Content = styled.div`
   transition: all ease-in 200ms;
   overflow: hidden;
   padding: 0 5em;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1em;
+  }
 `;
 
 const Brand = styled.div`
   display: flex;
   flex-direction: column;
   height: 80%;
+  @media (max-width: 768px) {
+    height: auto;
+  }
 `;
 
 const BaseImage = styled(animated.img)`
   height: 10%;
+  @media (max-width: 768px) {
+    height: 20%; 
+  }
 `;
 
 const Title = styled.div`
   display: flex;
   height: 70%;
+
+  @media (max-width: 768px) {
+    height: auto; 
+  }
 `;
 
 const BlockContainer = styled.div`
@@ -81,6 +103,11 @@ const Menu = styled.div`
   justify-content: flex-end;
   width: 70%;
   height: 70%;
+  @media (max-width: 768px) {
+    width: 100%; 
+    height: auto; 
+    justify-content: center; 
+  }
 `;
 
 const MenuItem = styled(animated(Link))`
@@ -104,6 +131,11 @@ const MenuItem = styled(animated(Link))`
   margin-right: 2em;
   letter-spacing: 0.0em;
   cursor: pointer;
+  @media (max-width: 768px) {
+    font-size: 0.7em; 
+    padding: 0.3em ${(props) => (props.cta ? "0.8em" : "0em")}; 
+    margin-right: 1em; 
+  }
   &:hover {
     color: #32704E;
   }
@@ -124,13 +156,17 @@ const Button = styled.button`
   font-size: 2em;
   color: ${theme.colors.primary};
   cursor: pointer;
-  z-index: 999;
-
   @media (max-width: 800px) {
     display: block;
   }
 `;
-
+const SVGIcon = styled.div`
+width: 66px;
+height: 42px;
+transform: rotate(-90deg);
+  background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="72" height="48" viewBox="0 0 72 48" fill="none"><path d="M3 3L69 3.00001" stroke="#00561E" stroke-width="6" stroke-linecap="round"/><path d="M3 24L69 24" stroke="#00561E" stroke-width="6" stroke-linecap="round"/><path d="M3 45L69 45" stroke="#00561E" stroke-width="6" stroke-linecap="round"/></svg>');
+  flex-shrink: 0;
+`;
 const MobileMenu = styled.div`
   display: none;
   position: fixed;
@@ -159,8 +195,17 @@ const MobileMenuItem = styled(Link)`
   letter-spacing: 0.1em;
   padding: 1.1em 0;
   cursor: pointer;
+  @media (max-width: 800px) {
+    font-size: 1em; 
+    padding: 1em 0; 
+  }
 `;
-
+const Mobilehamber = styled.img`
+  width: 66px;
+  height: 42px;
+  transform: rotate(-90deg);
+  flex-shrink: 0;
+`;
 const titleArr = [lImage, uImage, xImage, eImage, oImage];
 
 const sections = [
@@ -303,7 +348,7 @@ export default function Navbar({
             </MenuItem>
           ))}
         </Menu>
-        <Button onClick={() => setMobileMenuOpen((v) => !v)} />
+        <Button onClick={() => setMobileMenuOpen((v) => !v)} ><Mobilehamber src={mobilehamber}/></Button>
         {mobileMenuOpen && (
           <MobileMenu>
             {sections.map((item) => (

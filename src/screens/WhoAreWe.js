@@ -13,6 +13,9 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  @media (max-width: 768px) {
+    padding: 1em; /* Add padding for smaller screens */
+  }
 `;
 
 export default function WhoAreWe({ setLoaded, websiteLoading, setShowCover }) {

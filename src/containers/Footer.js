@@ -17,12 +17,21 @@ const Container = styled(animated.div)`
   height: calc(10vh - 8px);
   transition: all ease-in 200ms;
   padding-bottom: 8px;
+  @media (max-width: 768px) {
+    width: calc(95vw);
+    height: calc(8vh - 6px);
+  }
 `;
 
 const BWInvite = styled.img`
   width: 7%;
   margin-right: 2%;
   margin-bottom: 1%;  
+  @media (max-width: 768px) {
+    width: 12%;
+    margin-right: 1%;
+    margin-bottom: 0.5%;
+  }
 `;
 
 const Content = styled.div`
@@ -32,17 +41,30 @@ const Content = styled.div`
   align-items: center;
   justify-content: flex-start;
   padding-bottom: 10px;
+  @media (max-width: 768px) {
+    width: 95%;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-bottom: 5px;
+  }
 `;
 
 const LogoImage = styled.img`
   cursor: pointer;
   width: 5%;
+  @media (max-width: 768px) {
+    width: 10%;
+  }
 `;
 
 const Division = styled.div`
   height: 1px;
   width: 87%;
   background-color: ${theme.colors.primary};
+  @media (max-width: 768px) {
+    width: 95%;
+  }
 `;
 
 const Social = styled.img`
@@ -53,6 +75,10 @@ const Social = styled.img`
   &:hover {
     opacity: 0.6;
     transition: all 250ms ease-in;
+  }
+  @media (max-width: 768px) {
+    width: 12px;
+    height: 12px;
   }
 `;
 

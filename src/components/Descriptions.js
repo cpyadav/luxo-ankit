@@ -10,6 +10,11 @@ const Container = styled.div`
   align-items: flex-end;
   margin-right: ${(props) => (props.small ? "0em" : "30em")};
   margin-top: ${(props) => (props.small ? "0em" : "6em")};
+  @media (max-width: 768px) {
+    margin-right: 0; 
+    margin-top: 2em; 
+    align-items: center;
+  }
 `;
 
 const DescriptionContainer = styled.div`
@@ -19,6 +24,10 @@ const DescriptionContainer = styled.div`
   width: 100%;
   overflow: hidden;
   margin-top: ${(props) => (props.small ? "20px" : "2px")};
+  @media (max-width: 768px) {
+    align-items: center; 
+    margin-top: ${(props) => (props.small ? "10px" : "1px")}; 
+  }
 `;
 
 const Description = styled(animated.p)`
@@ -28,6 +37,12 @@ const Description = styled(animated.p)`
   text-align: ${(props) => (props.flip ? "left" : "right")};
   white-space: pre-line;
   margin-left:70px;
+  @media (max-width: 768px) {
+    font-size: ${(props) => (props.small ? "1.2em" : "1.3em")}; 
+    text-align: center; 
+    margin-left: 0; 
+    margin-top: 10px; 
+  }
 `;
 
 const Book = styled(animated.button)`
@@ -56,6 +71,11 @@ const Book = styled(animated.button)`
         transition: all ease-in 250ms;
       }
     `}
+    @media (max-width: 768px) {
+      padding: 0.5em ${(props) => (props.cta ? "1.5em" : "0.8em")}; 
+      font-size: 1em; 
+      margin-top: 1.5em; 
+    }
 `;
 
 export default function Descriptions({ animate, flip, small, data, unset }) {

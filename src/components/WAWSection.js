@@ -13,6 +13,10 @@ const Container = styled.div`
   align-items: center;
   width: 100%;
   height: 100vh;
+  @media (max-width: 768px) {
+    flex-direction: column; 
+    height: auto; 
+  }
 `;
 
 const Left = styled.div`
@@ -23,6 +27,9 @@ const Left = styled.div`
   align-items: ${(props) => (props.flip ? "flex-start" : "flex-end")};
   width: 45%;
   height: 100vh;
+  @media (max-width: 768px) {
+    width: 100%; 
+  }
 `;
 
 const Right = styled.div`
@@ -33,6 +40,9 @@ const Right = styled.div`
   align-items: center;
   width: 40%;
   height: 100vh;
+  @media (max-width: 768px) {
+    width: 60%; 
+  }
 `;
 
 const VideoContainer = styled(animated.div)`
@@ -40,6 +50,11 @@ const VideoContainer = styled(animated.div)`
   height: 60%;
   width: 60%;
   margin-top: 4em;
+  @media (max-width: 768px) {
+    width: 80%; 
+    height: 50%; 
+    margin-top: 2em; 
+  }
 `;
 
 const Video = styled(animated.video)`
@@ -55,6 +70,9 @@ const VideoBrownOverlay = styled.div`
   height: 100%;
   background-color: ${theme.colors.brownOverlay};
   opacity: 0;
+  @media (max-width: 768px) {
+    opacity: 0.5; 
+  }
 `;
 
 const VideoGradientOverlay = styled.div`
@@ -64,6 +82,9 @@ const VideoGradientOverlay = styled.div`
   height: 60%;
   background-image: linear-gradient(white, transparent);
   opacity: 0.7;
+  @media (max-width: 768px) {
+    height: 40%; 
+  }
 `;
 
 const Titles = styled.div`
@@ -73,6 +94,10 @@ const Titles = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  @media (max-width: 768px) {
+    right: 5%; 
+    top: 10%;
+  }
 `;
 
 const Title = styled(animated.p)`
@@ -80,6 +105,10 @@ const Title = styled(animated.p)`
   font-family: "Giovanna";
   font-size: 3em;
   text-align: right;
+  @media (max-width: 768px) {
+    font-size: 2em; 
+    text-align: center; 
+  }
 `;
 
 export default function WAWSection({ data, flip, setLoaded, websiteLoading }) {

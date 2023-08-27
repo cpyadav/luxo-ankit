@@ -24,6 +24,11 @@ const Base = styled.div`
   justify-content: flex-start;
   align-items: center;
   width: 100%;
+  @media (max-width: 768px) {
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const VideoContainer = styled(animated.div)`
@@ -37,6 +42,11 @@ const VideoContainer = styled(animated.div)`
   z-index: 999;
   min-width: 100%;
   background-color: #141414;
+  @media (max-width: 768px) {
+    background-color: #000000;
+    align-items: flex-start;
+    padding-top: 1rem;
+  }
 `;
 
 const Video = styled.video`
@@ -44,6 +54,9 @@ const Video = styled.video`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  @media (max-width: 768px) {
+    object-fit: contain;
+  }
 `;
 
 export default function Layout({

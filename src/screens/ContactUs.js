@@ -14,6 +14,11 @@ const Container = styled.div`
   align-items: center;
   width: 75%;
   height: 90vh;
+  @media (max-width: 768px) {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 const Left = styled.div`
@@ -23,21 +28,29 @@ const Left = styled.div`
   justify-content: center;
   align-items: flex-start;
   width: 45%;
+  @media (max-width: 768px) {
+    width: 100%;
+    align-items: center;
+  }
 `;
 
 const Map = styled(animated.img)`
   width: 100%;
 `;
 
-const Row = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-  width: 100%;
-  margin: 1.1em 0;
-`;
+  const Row = styled.div`
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    margin: 1.1em 0;
+    @media (max-width: 768px) {
+      justify-content: center;
+      margin: 0.7em 0;
+    }
+  `;
 
 const Description = styled(animated.p)`
   color: ${theme.colors.primary};
@@ -45,6 +58,12 @@ const Description = styled(animated.p)`
   text-align: ${(props) => (props.flip ? "left" : "right")};
   width: 70%;
   margin-right: 1em;
+  @media (max-width: 768px) {
+    font-size: 1.1em;
+    width: 100%;
+    margin-right: 0;
+    text-align: left; /* You might want to adjust text alignment for small devices */
+  }
 `;
 
 const Book = styled(animated.button)`
@@ -73,6 +92,11 @@ const Book = styled(animated.button)`
         transition: all ease-in 250ms;
       }
     `}
+    @media (max-width: 768px) {
+      font-size: 1em;
+      padding: 0.5em ${(props) => (props.cta ? "1.5em" : "0.8em")};
+      margin-top: 1.5em;
+    }
 `;
 
 const Right = styled.div`
@@ -83,6 +107,10 @@ const Right = styled.div`
   align-items: flex-end;
   width: 55%;
   height: 100vh;
+  @media (max-width: 768px) {
+    width: 100%;
+    align-items: center;
+  }
 `;
 
 const AnimatedMapPin = animated(MapPin);

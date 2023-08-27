@@ -10,6 +10,10 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  @media (max-width: 768px) {
+    right: 20%;
+    top: 15%;
+  }
 `;
 
 const Title = styled(animated.p)`
@@ -18,6 +22,11 @@ const Title = styled(animated.p)`
   font-size: 2.7em;
   text-align: right;
   margin-bottom: -0.2em;
+  @media (max-width: 768px) {
+    font-size: ${theme.fontSizes.h1}px;
+    text-align: center;
+    margin-bottom: 0.2em;
+  }
 `;
 
 export default function Titles({ data, selected, unset }) {

@@ -17,6 +17,10 @@ const Container = styled.div`
   width: 100%;
   height: 80vh;
   padding-top: 10vh;
+  @media (max-width: 768px) {
+    height: 60vh; 
+    padding-top: 5vh; 
+  }
 `;
 
 const Bar = styled.div`
@@ -25,6 +29,9 @@ const Bar = styled.div`
   width: 60%;
   height: 0.5px;
   background-color: ${theme.colors.primary};
+  @media (max-width: 768px) {
+    width: 80%; 
+  }
 `;
 
 const Title = styled(animated.p)`
@@ -32,6 +39,10 @@ const Title = styled(animated.p)`
   font-family: "Giovanna";
   font-size: 3em;
   text-align: right;
+  @media (max-width: 768px) {
+    font-size: 2em; 
+    text-align: center; 
+  }
 `;
 
 const Parts = styled.div`
@@ -43,6 +54,10 @@ const Parts = styled.div`
   width: 100%;
   height: 70%;
   margin-top: 22px;
+  @media (max-width: 768px) {
+    flex-direction: column; 
+    height: auto; 
+  }
 `;
 
 const Part = styled(animated.div)`
@@ -56,6 +71,12 @@ const Part = styled(animated.div)`
   border-top-right-radius: 200px;
   border-top-left-radius: 200px;
   background-image: linear-gradient(white, transparent);
+  @media (max-width: 768px) {
+    width: 100%; 
+    height: 150px; 
+    border-radius: 0; 
+    margin-bottom: 20px; 
+  }
 `;
 
 const Image = styled.img`
@@ -66,6 +87,10 @@ const Image = styled.img`
   align-items: center;
   top: 22%;
   width: 60%;
+  @media (max-width: 768px) {
+    width: 32%;
+    top: 10%; 
+  }
 `;
 
 const Name = styled(animated.p)`
@@ -76,6 +101,12 @@ const Name = styled(animated.p)`
   font-size: 1.7em;
   text-align: right;
   margin-bottom:50px;
+  @media (max-width: 768px) {
+    font-size: 1.1em; 
+    text-align: center; 
+    bottom: 0%; 
+    margin-bottom: 0px; 
+  }
 `;
 
 const parts = [
