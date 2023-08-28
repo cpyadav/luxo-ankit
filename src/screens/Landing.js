@@ -20,10 +20,7 @@ const Container = styled(animated.div)`
   width: 100%;
   height: 90vh;
   overflow: hidden;
-  @media (max-width: 768px) {
-    flex-direction: column;
-    height: auto; 
-  }
+ 
 `;
 
 const Slides = styled(animated.div)`
@@ -35,12 +32,8 @@ const Slides = styled(animated.div)`
   width: 1350px;
   margin-top: 10em;
   perspective: 200em;
-  @media (max-width: 768px) {
-    flex-direction: column; 
-    width: 100%; 
-    margin-top: 5em; 
-    perspective: none; 
-  }
+ 
+ 
 `;
 
 const SlideContainer = styled(animated.div)`
@@ -52,18 +45,18 @@ const SlideContainer = styled(animated.div)`
   cursor: ${(props) => (props.selectable ? "pointer" : "default")};
   pointer-events: ;
   @media (max-width: 768px) {
-    width: 100%; 
-    height: auto;
+    width: 90%; /* Adjust as needed */
+    height: auto; /* Adjust as needed */
+    max-height: 80vh; /* Adjust as needed */
   }
+  
 `;
 
 const Slide = styled(animated.video)`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  @media (max-width: 768px) {
-    height: auto; 
-  }
+  
 `;
 
 const SlideBrownOverlay = styled.div`
@@ -74,9 +67,7 @@ const SlideBrownOverlay = styled.div`
   background-color: ${theme.colors.brownOverlay};
   opacity: ${(props) => (props.selectable ? 0.0 : 0.6)};
   mix-blend-mode: ${(props) => (props.selectable ? "normal" : "normal")};
-  @media (max-width: 768px) {
-    opacity: 0.6; 
-  }
+ 
 `;
 
 const SlideGradientOverlay = styled.div`
@@ -86,9 +77,7 @@ const SlideGradientOverlay = styled.div`
   height: 30%;
   background-image: linear-gradient(white, transparent);
   opacity: 0.5;
-  @media (max-width: 768px) {
-    height: 15%;
-  }
+ 
 `;
 
 const Buttons = styled.div`
@@ -100,11 +89,7 @@ const Buttons = styled.div`
   align-items: center;
   margin-top: 10em;
   pointer-events: none;
-  @media (max-width: 768px) {
-    flex-direction: column; 
-    width: 100%; 
-    margin-top: 5em; 
-  }
+ 
 `;
 
 const Button = styled(animated.button)`
@@ -121,10 +106,7 @@ const Button = styled(animated.button)`
     transform: scale(1.1);
     transition: all 250ms ease-in;
   }
-  @media (max-width: 768px) {
-    width: 30px; 
-    height: 30px; 
-  }
+ 
 `;
 
 const ButtonImage = styled(animated.img)`
@@ -153,9 +135,7 @@ const ExploreContainer = styled.button`
   outline: none;
   border: none;
   cursor: pointer;
-  @media (max-width: 768px) {
-    bottom: 10%;
-  }
+
 `;
 
 const Explore = styled.p`
@@ -163,10 +143,7 @@ const Explore = styled.p`
   font-size: 1.2em;
   text-align: right;
   letter-spacing: 0.4em;
-  @media (max-width: 768px) {
-    font-size: 1em; 
-    text-align: center;
-  }
+ 
 `;
 
 const AnimatedChevronDown = animated(ChevronDown);
@@ -186,11 +163,7 @@ const GoBack = styled(animated.button)`
   letter-spacing: 0.2em;
   cursor: pointer;
   background: none;
-  @media (max-width: 768px) {
-    font-size: 0.7em; 
-    left: 2%; 
-    bottom: 4%; 
-  }
+ 
 `;
 
 const features = [
