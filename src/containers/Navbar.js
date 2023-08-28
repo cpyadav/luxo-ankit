@@ -23,9 +23,6 @@ const Container = styled.div`
   height: 14vh;
   transition: all ease-in 200ms;
   overflow: hidden;
-  @media (max-width: 768px) {
-    height: 20vh; 
-  }
 `;
 
 const BGVideo = styled.video`
@@ -35,9 +32,6 @@ const BGVideo = styled.video`
   width: 100%;
   height: 100vh;
   object-fit: cover;
-  @media (max-width: 768px) {
-    height: auto; 
-  }
 `;
 
 const Content = styled.div`
@@ -50,11 +44,7 @@ const Content = styled.div`
   transition: all ease-in 200ms;
   overflow: hidden;
   padding: 0 5em;
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-    padding: 0 1em;
-  }
+ 
 `;
 
 const Brand = styled.div`
@@ -348,7 +338,7 @@ export default function Navbar({
             </MenuItem>
           ))}
         </Menu>
-        <Button onClick={() => setMobileMenuOpen((v) => !v)} ><Mobilehamber src={mobilehamber}/></Button>
+        <Button onClick={() => setMobileMenuOpen((v) => !v)} ></Button>
         {mobileMenuOpen && (
           <MobileMenu>
             {sections.map((item) => (
