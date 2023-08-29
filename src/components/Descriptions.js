@@ -11,9 +11,10 @@ const Container = styled.div`
   margin-right: ${(props) => (props.small ? "0em" : "30em")};
   margin-top: ${(props) => (props.small ? "0em" : "6em")};
   @media (max-width: 768px) {
-    margin-right: 0; 
-    margin-top: 2em; 
+   
     align-items: center;
+    position: relative;
+    margin: 0 auto;
   }
 `;
 

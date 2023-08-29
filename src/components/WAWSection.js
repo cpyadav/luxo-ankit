@@ -29,6 +29,7 @@ const Left = styled.div`
   height: 100vh;
   @media (max-width: 768px) {
     width: 100%; 
+    height: 64vh;
   }
 `;
 
@@ -41,7 +42,11 @@ const Right = styled.div`
   width: 40%;
   height: 100vh;
   @media (max-width: 768px) {
-    width: 60%; 
+    width: 99%;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    height: 70vh;
   }
 `;
 
@@ -51,9 +56,12 @@ const VideoContainer = styled(animated.div)`
   width: 60%;
   margin-top: 4em;
   @media (max-width: 768px) {
-    width: 80%; 
-    height: 50%; 
-    margin-top: 2em; 
+    width: 95%;
+    height: 70%;
+    margin-top: 2em;
+    text-align: center;
+    margin: 0 auto;
+    margin-left: 3%;
   }
 `;
 

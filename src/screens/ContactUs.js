@@ -15,7 +15,7 @@ const Container = styled.div`
   width: 75%;
   height: 90vh;
   @media (max-width: 768px) {
-    width: 100%;
+    width: 90%;
     flex-direction: column;
     justify-content: center;
   }

@@ -52,7 +52,11 @@ const Brand = styled.div`
   flex-direction: column;
   height: 80%;
   @media (max-width: 768px) {
-    height: auto;
+    text-align: center;
+    margin: 0 auto;
+    position: absolute;
+    height: 60%;
+    top: 20px;
   }
 `;
 
@@ -67,7 +71,9 @@ const Title = styled.div`
   height: 70%;
 
   @media (max-width: 768px) {
-    height: auto; 
+    text-align: center;
+    margin: 0 auto;
+   
   }
 `;
 
@@ -95,6 +101,7 @@ const Menu = styled.div`
   @media (max-width: 768px) {
     width: 100%; 
     height: auto; 
+    display:none;
     justify-content: center; 
   }
 `;
