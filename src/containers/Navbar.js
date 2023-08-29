@@ -7,6 +7,7 @@ import xImage from "../assets/x.png";
 import eImage from "../assets/e.png";
 import oImage from "../assets/o.png";
 import baseimage from "../assets/logo-base.png";
+import mobilemenuImage from "../assets/menuhamberg.png";
 import bg from "../assets/bg.mp4";
 
 import { useNavigate, Link, useLocation } from "react-router-dom";
@@ -44,7 +45,6 @@ const Content = styled.div`
   transition: all ease-in 200ms;
   overflow: hidden;
   padding: 0 5em;
- 
 `;
 
 const Brand = styled.div`
@@ -62,7 +62,6 @@ const BaseImage = styled(animated.img)`
     height: 20%; 
   }
 `;
-
 const Title = styled.div`
   display: flex;
   height: 70%;
@@ -146,8 +145,11 @@ const Button = styled.button`
   font-size: 2em;
   color: ${theme.colors.primary};
   cursor: pointer;
-  @media (max-width: 800px) {
+  @media (max-width: 768px) {
     display: block;
+    position:absolute;
+    top:20px;
+    left:20px;
   }
 `;
 const SVGIcon = styled.div`
@@ -191,9 +193,8 @@ const MobileMenuItem = styled(Link)`
   }
 `;
 const Mobilehamber = styled.img`
-  width: 66px;
-  height: 42px;
-  transform: rotate(-90deg);
+  width: 22px;
+  height: 25px;
   flex-shrink: 0;
 `;
 const titleArr = [lImage, uImage, xImage, eImage, oImage];
@@ -249,7 +250,9 @@ export default function Navbar({
   const [baseImageStyle, baseImageApi] = useSpring(() => ({
     from: { transform: "translate(-100%, 0%)", opacity: 0 },
   }));
-
+  const handleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen)
+  }
   useEffect(() => {
     if (websiteLoading || showCover) return;
 
@@ -338,7 +341,7 @@ export default function Navbar({
             </MenuItem>
           ))}
         </Menu>
-        <Button onClick={() => setMobileMenuOpen((v) => !v)} ></Button>
+        <Button  ><Mobilehamber onClick={handleMobileMenu} src={mobilemenuImage}/></Button>
         {mobileMenuOpen && (
           <MobileMenu>
             {sections.map((item) => (
@@ -346,7 +349,7 @@ export default function Navbar({
                 key={item.text}
                 smooth
                 to={item.link}
-                onClick={() => setMobileMenuOpen(false)}>
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
                 {item.text}
               </MobileMenuItem>
             ))}

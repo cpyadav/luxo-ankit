@@ -19,7 +19,7 @@ const Title = styled(animated.p)`
   text-align: right;
   margin-bottom: -0.2em;
   @media (max-width: 768px) {
-    font-size: 1.7em;
+    font-size: 2.0em;
     text-align: center;
   }
 `;
