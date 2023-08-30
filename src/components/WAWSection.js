@@ -29,7 +29,7 @@ const Left = styled.div`
   height: 100vh;
   @media (max-width: 768px) {
     width: 100%; 
-    height: 64vh;
+    height: 72vh;
   }
 `;
 

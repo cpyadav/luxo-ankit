@@ -9,14 +9,12 @@ import oImage from "../assets/o.png";
 import baseimage from "../assets/logo-base.png";
 import mobilemenuImage from "../assets/menuhamberg.png";
 import mobilecrossImage from "../assets/cross.png";
-
 import bg from "../assets/bg.mp4";
-
 import { useNavigate, Link, useLocation } from "react-router-dom";
 import { animated, easings, useSpring, useSprings } from "@react-spring/web";
 import mobilehamber from "../assets/mobilehamber.svg";
 
-const Container = styled.div`
+const Container = styled.div `
   z-index: 999;
   position: fixed;
   display: flex;
@@ -28,7 +26,7 @@ const Container = styled.div`
   overflow: hidden;
 `;
 
-const BGVideo = styled.video`
+const BGVideo = styled.video `
   position: absolute;
   top: 0;
   overflow: hidden;
@@ -37,7 +35,7 @@ const BGVideo = styled.video`
   object-fit: cover;
 `;
 
-const Content = styled.div`
+const Content = styled.div `
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -49,7 +47,7 @@ const Content = styled.div`
   padding: 0 5em;
 `;
 
-const Brand = styled.div`
+const Brand = styled.div `
   display: flex;
   flex-direction: column;
   height: 80%;
@@ -62,14 +60,15 @@ const Brand = styled.div`
   }
 `;
 
-const BaseImage = styled(animated.img)`
+const BaseImage = styled(animated.img)
+`
   height: 10%;
   @media (max-width: 768px) {
     height: 20%; 
     display:none;
   }
 `;
-const Title = styled.div`
+const Title = styled.div `
   display: flex;
   height: 70%;
 
@@ -80,7 +79,7 @@ const Title = styled.div`
   }
 `;
 
-const BlockContainer = styled.div`
+const BlockContainer = styled.div `
   display: flex;
   justify-content: center;
   align-items: center;
@@ -89,13 +88,14 @@ const BlockContainer = styled.div`
   height: 100%;
 `;
 
-const Block = styled(animated.img)`
+const Block = styled(animated.img)
+`
   height: 100%;
   margin: 0;
   align: center;
 `;
 
-const Menu = styled.div`
+const Menu = styled.div `
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -109,7 +109,8 @@ const Menu = styled.div`
   }
 `;
 
-const MenuItem = styled(animated(Link))`
+const MenuItem = styled(animated(Link))
+`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -187,6 +188,11 @@ const MobileMenu = styled.div`
 
   @media (max-width: 800px) {
     display: flex;
+    left: 0;
+    height: 100%;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    align-items: end;
   }
 `;
 
@@ -202,7 +208,9 @@ const MobileMenuItem = styled(Link)`
   cursor: pointer;
   @media (max-width: 800px) {
     font-size: 1em; 
-    padding: 1em 0; 
+    padding: 1.2em 2em;
+    text-align: right;
+    margin-top: 25px;
   }
 `;
 const Mobilehamber = styled.img`

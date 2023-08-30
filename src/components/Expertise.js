@@ -18,7 +18,7 @@ const Container = styled.div`
   height: 80vh;
   padding-top: 10vh;
   @media (max-width: 768px) {
-    height: 60vh; 
+    height: 73vh; 
     padding-top: 5vh; 
   }
 `;
