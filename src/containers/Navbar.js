@@ -162,6 +162,7 @@ const Button = styled.button`
     right: 20px;
     border: 0;
     background-color: #dcdcdc;
+    z-index :9999;
   }
 `;
 const SVGIcon = styled.div`
@@ -175,11 +176,11 @@ const MobileMenu = styled.div`
   display: none;
   position: fixed;
   top: 0;
-  left: 0;
+  left: 100px;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  background-color: white;
+  background: rgba(255, 255, 255, 0.88);
   width: 100vw;
   padding-top: 6vh;
   transition: all ease-in 200ms;

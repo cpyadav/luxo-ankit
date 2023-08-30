@@ -31,6 +31,7 @@ const BWInvite = styled.img`
     width: 12%;
     margin-right: 1%;
     margin-bottom: 0.5%;
+    display:none;
   }
 `;
 
@@ -43,10 +44,10 @@ const Content = styled.div`
   padding-bottom: 10px;
   @media (max-width: 768px) {
     width: 95%;
-    flex-direction: column;
     align-items: flex-start;
     justify-content: center;
     padding-bottom: 5px;
+
   }
 `;
 
