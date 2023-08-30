@@ -8,6 +8,8 @@ import eImage from "../assets/e.png";
 import oImage from "../assets/o.png";
 import baseimage from "../assets/logo-base.png";
 import mobilemenuImage from "../assets/menuhamberg.png";
+import mobilecrossImage from "../assets/cross.png";
+
 import bg from "../assets/bg.mp4";
 
 import { useNavigate, Link, useLocation } from "react-router-dom";
@@ -64,6 +66,7 @@ const BaseImage = styled(animated.img)`
   height: 10%;
   @media (max-width: 768px) {
     height: 20%; 
+    display:none;
   }
 `;
 const Title = styled.div`
@@ -71,9 +74,9 @@ const Title = styled.div`
   height: 70%;
 
   @media (max-width: 768px) {
-    text-align: center;
-    margin: 0 auto;
-   
+    text-align: left;
+    margin-left: -50%;
+    height: 50%;
   }
 `;
 
@@ -154,9 +157,11 @@ const Button = styled.button`
   cursor: pointer;
   @media (max-width: 768px) {
     display: block;
-    position:absolute;
-    top:20px;
-    left:20px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border: 0;
+    background-color: #dcdcdc;
   }
 `;
 const SVGIcon = styled.div`
@@ -200,9 +205,18 @@ const MobileMenuItem = styled(Link)`
   }
 `;
 const Mobilehamber = styled.img`
-  width: 22px;
-  height: 25px;
+  width: 23px;
+  height: 20px;
   flex-shrink: 0;
+  transform: rotate(180deg);
+  background-color: #dcdcdc;
+`;
+const MobileCross = styled.img`
+  width: 23px;
+  height: 20px;
+  flex-shrink: 0;
+  transform: rotate(180deg);
+  background-color: #dcdcdc;
 `;
 const titleArr = [lImage, uImage, xImage, eImage, oImage];
 
@@ -260,6 +274,10 @@ export default function Navbar({
   const handleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen)
   }
+  const handleMobileMenuClose = () => {
+    setMobileMenuOpen(false)
+  }
+  
   useEffect(() => {
     if (websiteLoading || showCover) return;
 
@@ -348,7 +366,7 @@ export default function Navbar({
             </MenuItem>
           ))}
         </Menu>
-        <Button  ><Mobilehamber onClick={handleMobileMenu} src={mobilemenuImage}/></Button>
+        <Button  >{mobileMenuOpen ? <MobileCross onClick={handleMobileMenuClose} src={mobilecrossImage}  /> :<Mobilehamber onClick={handleMobileMenu} src={mobilemenuImage}/>}</Button>
         {mobileMenuOpen && (
           <MobileMenu>
             {sections.map((item) => (
