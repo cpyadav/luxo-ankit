@@ -116,6 +116,7 @@ const Title = styled(animated.p)`
   @media (max-width: 768px) {
     font-size: 2em; 
     text-align: center; 
+    
   }
 `;
 

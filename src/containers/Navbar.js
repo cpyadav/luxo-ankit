@@ -177,7 +177,7 @@ const MobileMenu = styled.div`
   display: none;
   position: fixed;
   top: 0;
-  left: 100px;
+  left: 100px !important;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
@@ -208,7 +208,7 @@ const MobileMenuItem = styled(Link)`
   cursor: pointer;
   @media (max-width: 800px) {
     font-size: 1em; 
-    padding: 1.2em 2em;
+    padding: 1.2em 7em;
     text-align: right;
     margin-top: 25px;
   }

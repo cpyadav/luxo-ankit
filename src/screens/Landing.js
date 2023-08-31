@@ -20,6 +20,9 @@ const Container = styled(animated.div)`
   width: 100%;
   height: 90vh;
   overflow: hidden;
+  @media (max-width: 768px) {
+   
+  }
  
 `;
 
