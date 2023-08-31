@@ -29,7 +29,7 @@ const Left = styled.div`
   height: 100vh;
   @media (max-width: 768px) {
     width: 100%; 
-    height: 72vh;
+    height: 38vh;
   }
 `;
 
@@ -104,7 +104,7 @@ const Titles = styled.div`
   align-items: flex-end;
   @media (max-width: 768px) {
     right: 5%; 
-    top: 10%;
+    top: 18%;
   }
 `;
 
@@ -182,16 +182,6 @@ export default function WAWSection({ data, flip, setLoaded, websiteLoading }) {
 
   return (
     <Container>
-      {!flip && (
-        <Left>
-          <Descriptions
-            small
-            data={data}
-            unset={false}
-            animate={!websiteLoading}
-          />
-        </Left>
-      )}
       <Right>
         <VideoContainer style={{ ...videoStyle }}>
           <Video
@@ -210,6 +200,17 @@ export default function WAWSection({ data, flip, setLoaded, websiteLoading }) {
           <Title style={{ ...title2Style }}>{data.title[1]}</Title>
         </Titles>
       </Right>
+      {!flip && (
+        <Left>
+          <Descriptions
+            small
+            data={data}
+            unset={false}
+            animate={!websiteLoading}
+          />
+        </Left>
+      )}
+      
       {flip && (
         <Left flip>
           <Descriptions

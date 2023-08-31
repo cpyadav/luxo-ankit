@@ -207,7 +207,6 @@ export default function WAWSection({ data, flip, setLoaded, websiteLoading,handl
         <Titles>
           <Title style={{ ...title1Style }}>{data.title[0]}</Title>
           <Title style={{ ...title2Style }}>{data.title[1]}</Title>
-          <Title style={{ ...title2Style }}>{data.title[2]}</Title>
         </Titles>
       </Right>
      

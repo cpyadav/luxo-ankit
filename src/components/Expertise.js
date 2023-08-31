@@ -19,7 +19,7 @@ const Container = styled.div`
   padding-top: 10vh;
   @media (max-width: 768px) {
     height: 73vh; 
-    padding-top: 24vh; 
+    padding-top: 8vh; 
   }
 `;
 
@@ -105,7 +105,7 @@ const Name = styled(animated.p)`
     font-size: 1.1em; 
     text-align: center; 
     bottom: 0%; 
-    margin-bottom: 22px; 
+    margin-bottom: 0; 
   }
 `;
 

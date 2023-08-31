@@ -93,6 +93,10 @@ const Block = styled(animated.img)
   height: 100%;
   margin: 0;
   align: center;
+  @media (max-width: 768px) {
+    transform: translate(0, 0) !important;
+    opacity: 1 !important;
+  }
 `;
 
 const Menu = styled.div `
@@ -229,27 +233,40 @@ const MobileCross = styled.img`
 `;
 const titleArr = [lImage, uImage, xImage, eImage, oImage];
 
-const sections = [
-  {
-    text: "Who we are",
-    link: "/who-we-are",
-  },
-  {
-    text: "Contact us",
-    link: "/contact-us",
-  },
-  // {
-  //   text: "Blog",
-  //   link: "/blog", // Replace this with the actual link for the Blog page when available.
-  // },
-  {
-    text: "Talk to us",
-    link: "",
-  },
-];
+
 const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+var sections;
 if(isMobileDevice){
-  sections.pop()
+   sections = [
+    {
+      text: "Who we are",
+      link: "/who-we-are",
+    },
+    {
+      text: "Contact us",
+      link: "/contact-us",
+    },
+    // {
+    //   text: "Blog",
+    //   link: "/blog", // Replace this with the actual link for the Blog page when available.
+    // },
+   
+  ];
+}else{
+   sections = [
+    {
+      text: "Who we are",
+      link: "/who-we-are",
+    },
+    {
+      text: "Contact us",
+      link: "/contact-us",
+    },
+    {
+      text: "Talk to us",
+      link: "",
+    },
+  ];
 }
 export default function Navbar({
   websiteLoading,

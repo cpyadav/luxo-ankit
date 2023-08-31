@@ -41,6 +41,8 @@ const ContainerMobile = styled.div`
   width: 100%;
   @media (max-width: 768px) {
     padding: 1em; /* Add padding for smaller screens */
+    position: absolute;
+    top: 14%;
   }
 `;
 const Slides = styled(animated.div)`
@@ -263,6 +265,8 @@ export default function Landing({
   const videoRef3 = useRef();
   const [currentSlide, setCurrentSlide] = useState(1);
   const [detailSlide, setDetailSlide] = useState(false);
+  const [indexDetail, setindexDetail] = useState(0);
+
   const [containerStyles, containerApi] = useSpring(
     () => ({
       from: {
@@ -759,8 +763,9 @@ export default function Landing({
     },
   ];
 
-const handleVideoClick = () => {
+const handleVideoClick = (index) => {
      setDetailSlide(true)
+     setindexDetail(index)
   };
   const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   
@@ -771,7 +776,7 @@ const handleVideoClick = () => {
 
         <ContainerMobile>
          {detailSlide ? <WAWSectiionHomeMobileDetail
-            data={sections[0]}
+            data={sections[indexDetail]}
             setLoaded={setLoaded}
             websiteLoading={websiteLoading}
           
@@ -781,21 +786,21 @@ const handleVideoClick = () => {
             data={sections[0]}
             setLoaded={setLoaded}
             websiteLoading={websiteLoading}
-            handleVideoClick={handleVideoClick}
+            handleVideoClick={()=>handleVideoClick(0) }
           />
           <WAWSectiionHomeMobile
             data={sections[1]}
             flip
             setLoaded={setLoaded}
             websiteLoading={websiteLoading}
-            handleVideoClick={handleVideoClick}
+            handleVideoClick={()=>handleVideoClick(1)}
           />
            <WAWSectiionHomeMobile
-            data={sections[1]}
+            data={sections[2]}
             flip
             setLoaded={setLoaded}
             websiteLoading={websiteLoading}
-            handleVideoClick={handleVideoClick}
+            handleVideoClick={()=>handleVideoClick(2)}
           /></> }
         </ContainerMobile>
 

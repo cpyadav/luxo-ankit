@@ -6,7 +6,7 @@ import { Mail, MapPin, MapPinIcon, Phone } from "lucide-react";
 import contactus from "../assets/contactus.mp4";
 import map from "../assets/map.svg";
 
-const Container = styled.div`
+const Container = styled.div `
   position: relative;
   display: flex;
   flex-direction: row;
@@ -21,7 +21,7 @@ const Container = styled.div`
   }
 `;
 
-const Left = styled.div`
+const Left = styled.div `
   position: relative;
   display: flex;
   flex-direction: column;
@@ -34,14 +34,15 @@ const Left = styled.div`
   }
 `;
 
-const Map = styled(animated.img)`
+const Map = styled(animated.img)
+`
   width: 100%;
   @media (max-width: 768px) {
     margin-top:200px
   }
 `;
 
-  const Row = styled.div`
+const Row = styled.div `
     position: relative;
     display: flex;
     flex-direction: row;
@@ -55,7 +56,8 @@ const Map = styled(animated.img)`
     }
   `;
 
-const Description = styled(animated.p)`
+const Description = styled(animated.p)
+`
   color: ${theme.colors.primary};
   font-size: 1.3em;
   text-align: ${(props) => (props.flip ? "left" : "right")};
@@ -64,12 +66,13 @@ const Description = styled(animated.p)`
   @media (max-width: 768px) {
     font-size: 1.1em;
     width: 100%;
-    margin-right: 0;
+    margin-left: 15px;
     text-align: left; /* You might want to adjust text alignment for small devices */
   }
 `;
 
-const Book = styled(animated.button)`
+const Book = styled(animated.button)
+`
   border-style: solid;
   border-radius: 3em;
   color: white;
@@ -191,6 +194,7 @@ export default function ContactUs({ websiteLoading, setShowCover }) {
       ),
     },
   ];
+  const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
   return (
     <Container>
@@ -200,11 +204,23 @@ export default function ContactUs({ websiteLoading, setShowCover }) {
       <Right>
         {details.map((item, index) => (
           <Row key={index}>
+            {isMobileDevice ? 
+            <>
+            {item.icon()}
+            <Description
+              style={{ ...descriptionStyle, whiteSpace: "pre-line" }}>
+              {item.text}
+            </Description> 
+            </>  : 
+           <>
             <Description
               style={{ ...descriptionStyle, whiteSpace: "pre-line" }}>
               {item.text}
             </Description>
-            {item.icon()}
+             {item.icon()}
+             </>
+            }
+             
           </Row>
         ))}
 

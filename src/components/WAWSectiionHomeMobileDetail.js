@@ -3,7 +3,7 @@ import styled from "styled-components";
 import theme from "../utils/theme.js";
 import useWindowDimensions from "../utils/useWindowDimensions.js";
 import { animated, useSpring } from "@react-spring/web";
-import Descriptions from "./Descriptions.js";
+import DescriptionsHome from "./DescriptionsHome.js";
 
 const Container = styled.div`
   position: relative;
@@ -30,6 +30,7 @@ const Left = styled.div`
   @media (max-width: 768px) {
     width: 100%; 
     height: 72vh;
+    display: block;
   }
 `;
 
@@ -182,16 +183,6 @@ export default function WAWSectiionHomeMobileDetail({ data, flip, setLoaded, web
 
   return (
     <Container>
-      {!flip && (
-        <Left>
-          <Descriptions
-            small
-            data={data}
-            unset={false}
-            animate={!websiteLoading}
-          />
-        </Left>
-      )}
       <Right>
         <VideoContainer style={{ ...videoStyle }}>
           <Video
@@ -210,17 +201,18 @@ export default function WAWSectiionHomeMobileDetail({ data, flip, setLoaded, web
           <Title style={{ ...title2Style }}>{data.title[1]}</Title>
         </Titles>
       </Right>
-      {flip && (
-        <Left flip>
-          <Descriptions
-            flip
+      {!flip && (
+        <Left>
+          <DescriptionsHome
             small
             data={data}
             unset={false}
-            animate={!websiteLoading && scrolled}
+            animate={!websiteLoading}
           />
         </Left>
       )}
+      
+      
     </Container>
   );
 }
