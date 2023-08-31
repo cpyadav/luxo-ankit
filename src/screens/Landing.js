@@ -776,7 +776,7 @@ const handleVideoClick = (index) => {
 
         <ContainerMobile>
          {detailSlide ? <WAWSectiionHomeMobileDetail
-            data={sections[indexDetail]}
+            data={features[indexDetail]}
             setLoaded={setLoaded}
             websiteLoading={websiteLoading}
           
