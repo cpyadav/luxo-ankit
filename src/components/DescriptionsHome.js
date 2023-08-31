@@ -98,6 +98,7 @@ const GoBack = styled(animated.button)`
 `;
 export default function DescriptionsHome({ animate, flip, small, data, unset }) {
   const shouldStartAnimating = animate === undefined ? true : animate;
+
   const [descriptionStyles, descriptionsApi] = useSprings(
     data?.descriptions.length || 0,
     data?.descriptions.map((_, index) => ({
@@ -114,7 +115,6 @@ export default function DescriptionsHome({ animate, flip, small, data, unset }) 
   );
 
   useEffect(() => {
-    console.log(shouldStartAnimating);
     if (shouldStartAnimating && data) {
       descriptionsApi.start((index) => ({
         id: index,
@@ -159,9 +159,9 @@ export default function DescriptionsHome({ animate, flip, small, data, unset }) 
       });
     }
   }, [unset]);
-  // const goBack = () => {
-  //   history.go(-1)
-  // };
+  const goBack = () => {
+    document.location.href="/";
+  };
   return data ? (
     <Container small={small}>
       {data.descriptions.map((item, index) => (
@@ -178,9 +178,9 @@ export default function DescriptionsHome({ animate, flip, small, data, unset }) 
       {/* <GoBack  onClick={goBack}>
                 ⟵ Go Back
               </GoBack> */}
-              {/* <Book cta style={{ ...bookStyle }} onClick={goBack}>
+              <Book cta style={{ ...bookStyle }} onClick={goBack}>
               ⟵ Go Back
-        </Book> */}
+        </Book>
       </DescriptionContainer>
     </Container>
   ) : null;

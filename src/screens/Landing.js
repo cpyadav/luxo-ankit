@@ -727,7 +727,7 @@ export default function Landing({
         "industry, which is our specialty.",
       ],
       title: ["Master", "Perfumers"],
-      video: masterperfumers,
+      video: homecare,
     },
     {
       descriptions: [
@@ -743,7 +743,7 @@ export default function Landing({
         "perfume already on the market.",
       ],
       title: ["Science of", "Fragrance"],
-      video: scienceofperfumery,
+      video: personalcare,
     },
     {
       descriptions: [
@@ -759,7 +759,7 @@ export default function Landing({
         "perfume already on the market.",
       ],
       title: ["Science of", "Fragrance"],
-      video: scienceofperfumery,
+      video: fineperfumery,
     },
   ];
 
@@ -783,20 +783,20 @@ const handleVideoClick = (index) => {
           /> :
           <>
           <WAWSectiionHomeMobile
-            data={sections[0]}
+            data={features[0]}
             setLoaded={setLoaded}
             websiteLoading={websiteLoading}
             handleVideoClick={()=>handleVideoClick(0) }
           />
           <WAWSectiionHomeMobile
-            data={sections[1]}
+            data={features[1]}
             flip
             setLoaded={setLoaded}
             websiteLoading={websiteLoading}
             handleVideoClick={()=>handleVideoClick(1)}
           />
            <WAWSectiionHomeMobile
-            data={sections[2]}
+            data={features[2]}
             flip
             setLoaded={setLoaded}
             websiteLoading={websiteLoading}

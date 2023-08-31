@@ -277,7 +277,7 @@ export default function Navbar({
   setSelectedSlide,
 }) {
   const location = useLocation();
-  console.log(location);
+  //console.log(location);
   const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [menuItemStyles, menuItemApi] = useSprings(
