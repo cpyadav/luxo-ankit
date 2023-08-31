@@ -247,7 +247,10 @@ const sections = [
     link: "",
   },
 ];
-
+const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+if(isMobileDevice){
+  sections.pop()
+}
 export default function Navbar({
   websiteLoading,
   showCover,

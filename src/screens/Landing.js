@@ -11,6 +11,12 @@ import Descriptions from "../components/Descriptions.js";
 import chevronLeft from "../assets/chevron-left.svg";
 import { ChevronDown } from "lucide-react";
 
+import WAWSectiionHomeMobile from "../components/WAWSectiionHomeMobile.js";
+import masterperfumers from "../assets/masterperfumers.mp4";
+import scienceofperfumery from "../assets/scienceofperfumery.mp4";
+import WAWSectiionHomeMobileDetail from "../components/WAWSectiionHomeMobileDetail.js";
+
+
 const Container = styled(animated.div)`
   position: relative;
   display: flex;
@@ -26,6 +32,17 @@ const Container = styled(animated.div)`
  
 `;
 
+const ContainerMobile = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  @media (max-width: 768px) {
+    padding: 1em; /* Add padding for smaller screens */
+  }
+`;
 const Slides = styled(animated.div)`
   position: relative;
   display: flex;
@@ -48,9 +65,9 @@ const SlideContainer = styled(animated.div)`
   cursor: ${(props) => (props.selectable ? "pointer" : "default")};
   pointer-events: ;
   @media (max-width: 768px) {
-    width: 90%; /* Adjust as needed */
-    height: auto; /* Adjust as needed */
-    max-height: 80vh; /* Adjust as needed */
+    width: 90%; 
+    height: auto; 
+    max-height: 80vh; 
   }
   
 `;
@@ -245,6 +262,7 @@ export default function Landing({
   const videoRef2 = useRef();
   const videoRef3 = useRef();
   const [currentSlide, setCurrentSlide] = useState(1);
+  const [detailSlide, setDetailSlide] = useState(false);
   const [containerStyles, containerApi] = useSpring(
     () => ({
       from: {
@@ -343,18 +361,18 @@ export default function Landing({
 
   const videoRefs = [videoRef1, videoRef2, videoRef3];
 
-  useEffect(() => {
-    if (websiteLoading) return;
-    videoRefs[0].current.playbackRate = 0.7;
-    videoRefs[0].current?.pause();
-    videoRefs[1].current.playbackRate = 0.7;
-    videoRefs[1].current?.pause();
-    videoRefs[2].current.playbackRate = 1;
-    videoRefs[2].current?.pause();
-    videoRefs[currentSlide].current?.play().catch((e) => {
-      console.error(e);
-    });
-  }, [websiteLoading, currentSlide]);
+  // useEffect(() => {
+  //   if (websiteLoading) return;
+  //   videoRefs[0].current.playbackRate = 0.7;
+  //   videoRefs[0].current?.pause();
+  //   videoRefs[1].current.playbackRate = 0.7;
+  //   videoRefs[1].current?.pause();
+  //   videoRefs[2].current.playbackRate = 1;
+  //   videoRefs[2].current?.pause();
+  //   videoRefs[currentSlide].current?.play().catch((e) => {
+  //     console.error(e);
+  //   });
+  // }, [websiteLoading, currentSlide]);
 
   useEffect(() => {
     const DURATION = 1700;
@@ -691,93 +709,185 @@ export default function Landing({
     setSelectedSlide(-1);
   };
 
+
+  const sections = [
+    {
+      descriptions: [
+        "Our company is home to a group of",
+        "highly trained perfumers and fragrance",
+        "designers who live and breathe the art",
+        "of creating distinctive and memorable",
+        "aromas. We take great pride in being",
+        "able to offer our clients unrivalled",
+        "service and quality in the fragrance",
+        "industry, which is our specialty.",
+      ],
+      title: ["Master", "Perfumers"],
+      video: masterperfumers,
+    },
+    {
+      descriptions: [
+        "We consider fragrance development to",
+        "be both an art and a science here at",
+        "our company. We are dedicated to exceeding",
+        "our customers' expectations in every",
+        "way, from the quality of our products to",
+        "the friendliness of our customer service",
+        "staff. We have the experience and knowledge",
+        "to help you find the perfect fragrance,",
+        "whether it's a bespoke creation or a",
+        "perfume already on the market.",
+      ],
+      title: ["Science of", "Fragrance"],
+      video: scienceofperfumery,
+    },
+    {
+      descriptions: [
+        "We consider fragrance development to",
+        "be both an art and a science here at",
+        "our company. We are dedicated to exceeding",
+        "our customers' expectations in every",
+        "way, from the quality of our products to",
+        "the friendliness of our customer service",
+        "staff. We have the experience and knowledge",
+        "to help you find the perfect fragrance,",
+        "whether it's a bespoke creation or a",
+        "perfume already on the market.",
+      ],
+      title: ["Science of", "Fragrance"],
+      video: scienceofperfumery,
+    },
+  ];
+
+const handleVideoClick = () => {
+     setDetailSlide(true)
+  };
+  const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  
   return (
     <Fragment>
-      <Container style={{ ...containerStyles }}>
-        <Slides>
-          {features.map((item, index) => (
-            <SlideContainer
-              style={{ ...slideStyles[index] }}
-              selectable={currentSlide === index}
-              onClick={() => {
-                if (currentSlide === index) onSlideSelect(index);
-              }}>
-              <Slide
-                ref={videoRefs[index]}
-                loop
-                muted
-                playsinline
-                playbackspeed={1}
-                onLoadedData={() => setLoaded((loaded) => loaded + 1)}>
-                <source src={item.video} type="video/mp4" />
-              </Slide>
-              <SlideBrownOverlay selectable={currentSlide === index} />
-              <SlideGradientOverlay />
-            </SlideContainer>
-          ))}
-        </Slides>
+      {isMobileDevice ?
+        
 
-        {!websiteLoading && (
-          <Titles
-            unset={unset}
-            selected={selectedSlide !== -1}
-            data={features[currentSlide]}
+        <ContainerMobile>
+         {detailSlide ? <WAWSectiionHomeMobileDetail
+            data={sections[0]}
+            setLoaded={setLoaded}
+            websiteLoading={websiteLoading}
+          
+          /> :
+          <>
+          <WAWSectiionHomeMobile
+            data={sections[0]}
+            setLoaded={setLoaded}
+            websiteLoading={websiteLoading}
+            handleVideoClick={handleVideoClick}
           />
-        )}
+          <WAWSectiionHomeMobile
+            data={sections[1]}
+            flip
+            setLoaded={setLoaded}
+            websiteLoading={websiteLoading}
+            handleVideoClick={handleVideoClick}
+          />
+           <WAWSectiionHomeMobile
+            data={sections[1]}
+            flip
+            setLoaded={setLoaded}
+            websiteLoading={websiteLoading}
+            handleVideoClick={handleVideoClick}
+          /></> }
+        </ContainerMobile>
 
-        <Descriptions
-          animate
-          data={selectedSlide === -1 ? null : features[selectedSlide]}
-          unset={unset}
-        />
+       :
+        <>
+          <Container style={{ ...containerStyles }}>
+            <Slides>
+              { features && features.length > 0 && features.map((item, index) => (
+                <SlideContainer
+                  style={{ ...slideStyles[index] }}
+                  selectable={currentSlide === index}
+                  onClick={() => {
+                    if (currentSlide === index) onSlideSelect(index);
+                  }}>
+                  <Slide
+                    ref={videoRefs[index]}
+                    loop
+                    muted
+                    playsinline
+                    playbackspeed={1}
+                    onLoadedData={() => setLoaded((loaded) => loaded + 1)}>
+                    <source src={item.video} type="video/mp4" />
+                  </Slide>
+                  <SlideBrownOverlay selectable={currentSlide === index} />
+                  <SlideGradientOverlay />
+                </SlideContainer>
+              ))}
+            </Slides>
 
-        {selectedSlide !== -1 && (
-          <GoBack cta style={{ ...backStyle }} onClick={goBack}>
-            ⟵ Go Back
-          </GoBack>
-        )}
+            {!websiteLoading && (
+              <Titles
+                unset={unset}
+                selected={selectedSlide !== -1}
+                data={features[currentSlide]}
+              />
+            )}
 
-        <Buttons>
-          <Button style={{ ...arrowStyle }} onClick={onNext}>
-            <ButtonImage src={chevronLeft} />
-          </Button>
-          <Button style={{ ...arrowStyle }} onClick={onPrev}>
-            <ButtonImage
-              src={chevronLeft}
-              style={{ transform: "rotateY(180deg)" }}
+            <Descriptions
+              animate
+              data={selectedSlide === -1 ? null : features[selectedSlide]}
+              unset={unset}
             />
-          </Button>
-        </Buttons>
-      </Container>
-      {showCover && (
-        <Cover style={{ ...coverStyles }}>
-          <Image src={image} />
-          <ExploreContainer
-            onClick={() => {
-              coverApi.start({
-                from: {
-                  opacity: 1,
-                  transform: "translate(0%, 0%)",
-                },
-                to: {
-                  opacity: 0,
-                  transform: "translate(0%, -20%)",
-                },
-                config: {
-                  duration: 500,
-                  easing: easings.easeInSine,
-                },
-              });
-              setTimeout(() => setShowCover(false), 500);
-            }}>
-            <Explore>EXPLORE</Explore>
-            <AnimatedChevronDown
-              style={{ ...exploreStyles }}
-              color={theme.colors.primary}
-            />
-          </ExploreContainer>
-        </Cover>
-      )}
+
+            {selectedSlide !== -1 && (
+              <GoBack cta style={{ ...backStyle }} onClick={goBack}>
+                ⟵ Go Back
+              </GoBack>
+            )}
+
+            <Buttons>
+              <Button style={{ ...arrowStyle }} onClick={onNext}>
+                <ButtonImage src={chevronLeft} />
+              </Button>
+              <Button style={{ ...arrowStyle }} onClick={onPrev}>
+                <ButtonImage
+                  src={chevronLeft}
+                  style={{ transform: "rotateY(180deg)" }}
+                />
+              </Button>
+            </Buttons>
+          </Container>
+          {showCover && (
+            <Cover style={{ ...coverStyles }}>
+              <Image src={image} />
+              <ExploreContainer
+                onClick={() => {
+                  coverApi.start({
+                    from: {
+                      opacity: 1,
+                      transform: "translate(0%, 0%)",
+                    },
+                    to: {
+                      opacity: 0,
+                      transform: "translate(0%, -20%)",
+                    },
+                    config: {
+                      duration: 500,
+                      easing: easings.easeInSine,
+                    },
+                  });
+                  setTimeout(() => setShowCover(false), 500);
+                }}>
+                <Explore>EXPLORE</Explore>
+                <AnimatedChevronDown
+                  style={{ ...exploreStyles }}
+                  color={theme.colors.primary}
+                />
+              </ExploreContainer>
+            </Cover>
+          )}
+        </>
+      }
     </Fragment>
   );
 }

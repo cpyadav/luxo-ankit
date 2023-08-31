@@ -20,6 +20,7 @@ const Container = styled(animated.div)`
   @media (max-width: 768px) {
     width: calc(95vw);
     height: calc(8vh - 6px);
+    display:none;
   }
 `;
 
