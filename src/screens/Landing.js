@@ -714,60 +714,16 @@ export default function Landing({
   };
 
 
-  const sections = [
-    {
-      descriptions: [
-        "Our company is home to a group of",
-        "highly trained perfumers and fragrance",
-        "designers who live and breathe the art",
-        "of creating distinctive and memorable",
-        "aromas. We take great pride in being",
-        "able to offer our clients unrivalled",
-        "service and quality in the fragrance",
-        "industry, which is our specialty.",
-      ],
-      title: ["Master", "Perfumers"],
-      video: homecare,
-    },
-    {
-      descriptions: [
-        "We consider fragrance development to",
-        "be both an art and a science here at",
-        "our company. We are dedicated to exceeding",
-        "our customers' expectations in every",
-        "way, from the quality of our products to",
-        "the friendliness of our customer service",
-        "staff. We have the experience and knowledge",
-        "to help you find the perfect fragrance,",
-        "whether it's a bespoke creation or a",
-        "perfume already on the market.",
-      ],
-      title: ["Science of", "Fragrance"],
-      video: personalcare,
-    },
-    {
-      descriptions: [
-        "We consider fragrance development to",
-        "be both an art and a science here at",
-        "our company. We are dedicated to exceeding",
-        "our customers' expectations in every",
-        "way, from the quality of our products to",
-        "the friendliness of our customer service",
-        "staff. We have the experience and knowledge",
-        "to help you find the perfect fragrance,",
-        "whether it's a bespoke creation or a",
-        "perfume already on the market.",
-      ],
-      title: ["Science of", "Fragrance"],
-      video: fineperfumery,
-    },
-  ];
+ 
 
 const handleVideoClick = (index) => {
      setDetailSlide(true)
      setindexDetail(index)
   };
   const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  const handleCancel = () => {
+    setDetailSlide(false)
+ };
   
   return (
     <Fragment>
@@ -779,7 +735,7 @@ const handleVideoClick = (index) => {
             data={features[indexDetail]}
             setLoaded={setLoaded}
             websiteLoading={websiteLoading}
-          
+            handleCancel={handleCancel}
           /> :
           <>
           <WAWSectiionHomeMobile

@@ -175,12 +175,7 @@ export default function DescriptionsHome({ animate, flip, small, data, unset }) 
         </DescriptionContainer>
       ))}
       <DescriptionContainer small={small} flip={flip}>
-      {/* <GoBack  onClick={goBack}>
-                ⟵ Go Back
-              </GoBack> */}
-              <Book cta style={{ ...bookStyle }} onClick={goBack}>
-              ⟵ Go Back
-        </Book>
+      
       </DescriptionContainer>
     </Container>
   ) : null;

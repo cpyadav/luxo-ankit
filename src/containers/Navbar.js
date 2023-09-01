@@ -343,7 +343,9 @@ export default function Navbar({
       easing: easings.easeOutSine,
     }));
   }, [websiteLoading, showCover]);
-
+ const handleHome = ()=>{
+    document.location.href="/";
+ }
   return (
     <Container>
       <BGVideo
@@ -364,7 +366,7 @@ export default function Navbar({
               navigate("/");
             }}>
             {titleArr.map((item, index) => (
-              <BlockContainer key={index}>
+              <BlockContainer key={index} onClick={handleHome}>
                 <Block
                   style={{ ...blockStyles[index] }}
                   src={item}

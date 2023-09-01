@@ -120,8 +120,24 @@ const Title = styled(animated.p)`
     
   }
 `;
-
-export default function WAWSectiionHomeMobileDetail({ data, flip, setLoaded, websiteLoading }) {
+const GoBack = styled(animated.button)`
+  position: absolute;
+  left: 4.5%;
+  bottom: 6.5%;
+  color: ${theme.colors.primary};
+  border: none;
+  padding: 0.7em ${(props) => (props.cta ? "2em" : "1em")};
+  font-size: 0.8em;
+  font-weight: 600;
+  text-decoration: none;
+  font-family: "Satoshi Light";
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  cursor: pointer;
+  background: none;
+ 
+`;
+export default function WAWSectiionHomeMobileDetail({ data, flip, setLoaded, websiteLoading,handleCancel }) {
   const { height } = useWindowDimensions();
   const [title1Style, title1Api] = useSpring(
     () => ({
@@ -180,10 +196,16 @@ export default function WAWSectiionHomeMobileDetail({ data, flip, setLoaded, web
 
     return () => window.removeEventListener("scroll", listenScrollEvent);
   }, []);
-
+  const goBack = ()=>{
+    handleCancel();
+  }
   return (
     <Container>
+       
       <Right>
+      <GoBack  onClick={goBack}>
+         ⟵ Go Back
+   </GoBack>
         <VideoContainer style={{ ...videoStyle }}>
           <Video
             autoPlay
@@ -209,10 +231,12 @@ export default function WAWSectiionHomeMobileDetail({ data, flip, setLoaded, web
             unset={false}
             animate={!websiteLoading}
           />
+         
         </Left>
+         
       )}
       
-      
+     
     </Container>
   );
 }

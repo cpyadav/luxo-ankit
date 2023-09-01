@@ -183,6 +183,7 @@ export default function WAWSection({ data, flip, setLoaded, websiteLoading,handl
     handleVideoClick();
   };
   useEffect(() => {
+    window.scroll({top:40,behavior:'smooth'})
     window.addEventListener("scroll", listenScrollEvent);
 
     return () => window.removeEventListener("scroll", listenScrollEvent);
