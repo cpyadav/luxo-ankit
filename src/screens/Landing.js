@@ -729,7 +729,7 @@ const handleVideoClick = (index) => {
   const handleCancel = () => {
     setDetailSlide(false)
  };
-  
+  const landMobile = false;
   return (
     <Fragment>
       {isMobileDevice ?
@@ -739,28 +739,28 @@ const handleVideoClick = (index) => {
          {detailSlide ? <WAWSectiionHomeMobileDetail
             data={features[indexDetail]}
             setLoaded={setLoaded}
-            // websiteLoading={websiteLoading}
+             websiteLoading={landMobile}
             handleCancel={handleCancel}
           /> :
           <>
           <WAWSectiionHomeMobile
             data={features[0]}
             setLoaded={setLoaded}
-            // websiteLoading={websiteLoading}
+             websiteLoading={landMobile}
             handleVideoClick={()=>handleVideoClick(0) }
           />
           <WAWSectiionHomeMobile
             data={features[1]}
             flip
             setLoaded={setLoaded}
-            // websiteLoading={websiteLoading}
+            websiteLoading={landMobile}
             handleVideoClick={()=>handleVideoClick(1)}
           />
            <WAWSectiionHomeMobile
             data={features[2]}
             flip
             setLoaded={setLoaded}
-            // websiteLoading={websiteLoading}
+             websiteLoading={landMobile}
             handleVideoClick={()=>handleVideoClick(2)}
           /></> }
         </ContainerMobile>
