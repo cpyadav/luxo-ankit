@@ -12,8 +12,6 @@ import chevronLeft from "../assets/chevron-left.svg";
 import { ChevronDown } from "lucide-react";
 
 import WAWSectiionHomeMobile from "../components/WAWSectiionHomeMobile.js";
-import masterperfumers from "../assets/masterperfumers.mp4";
-import scienceofperfumery from "../assets/scienceofperfumery.mp4";
 import WAWSectiionHomeMobileDetail from "../components/WAWSectiionHomeMobileDetail.js";
 
 
@@ -364,22 +362,28 @@ export default function Landing({
 
   const videoRefs = [videoRef1, videoRef2, videoRef3];
 
-  // useEffect(() => {
-  //   if (websiteLoading) return;
-  //   videoRefs[0].current.playbackRate = 0.7;
-  //   videoRefs[0].current?.pause();
-  //   videoRefs[1].current.playbackRate = 0.7;
-  //   videoRefs[1].current?.pause();
-  //   videoRefs[2].current.playbackRate = 1;
-  //   videoRefs[2].current?.pause();
-  //   videoRefs[currentSlide].current?.play().catch((e) => {
-  //     console.error(e);
-  //   });
-  // }, [websiteLoading, currentSlide]);
+  useEffect(() => {
+    const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    if (isMobileDevice) {
+
+    } else {
+      if (websiteLoading) return;
+      videoRefs[0].current.playbackRate = 0.7;
+      videoRefs[0].current?.pause();
+      videoRefs[1].current.playbackRate = 0.7;
+      videoRefs[1].current?.pause();
+      videoRefs[2].current.playbackRate = 1;
+      videoRefs[2].current?.pause();
+      videoRefs[currentSlide].current?.play().catch((e) => {
+        console.error(e);
+      });
+    }
+    
+
+  }, [websiteLoading, currentSlide]);
 
   useEffect(() => {
     const DURATION = 1700;
-    console.log(showCover);
     if (!websiteLoading && !showCover) {
       containerApi.start({
         from: {
@@ -733,28 +737,28 @@ const handleVideoClick = (index) => {
          {detailSlide ? <WAWSectiionHomeMobileDetail
             data={features[indexDetail]}
             setLoaded={setLoaded}
-            websiteLoading={websiteLoading}
+            // websiteLoading={websiteLoading}
             handleCancel={handleCancel}
           /> :
           <>
           <WAWSectiionHomeMobile
             data={features[0]}
             setLoaded={setLoaded}
-            websiteLoading={websiteLoading}
+            // websiteLoading={websiteLoading}
             handleVideoClick={()=>handleVideoClick(0) }
           />
           <WAWSectiionHomeMobile
             data={features[1]}
             flip
             setLoaded={setLoaded}
-            websiteLoading={websiteLoading}
+            // websiteLoading={websiteLoading}
             handleVideoClick={()=>handleVideoClick(1)}
           />
            <WAWSectiionHomeMobile
             data={features[2]}
             flip
             setLoaded={setLoaded}
-            websiteLoading={websiteLoading}
+            // websiteLoading={websiteLoading}
             handleVideoClick={()=>handleVideoClick(2)}
           /></> }
         </ContainerMobile>
