@@ -87,6 +87,7 @@ export default function Layout({
       },
     });
   }, [websiteLoading]);
+  const isMobileDevice =  /mobile|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|iphone|ipod|blackberry|opera|mini|windows\sce|palm|smartphone|iemobile|ipad|android|android 3.0|xoom|sch-i800|playbook|tablet|kindle/i.test(navigator.userAgent);
 
   return (
     <Root>
@@ -103,16 +104,18 @@ export default function Layout({
         <Base>{children}</Base>
         <Footer websiteLoading={websiteLoading} showCover={showCover} />
       </Content>
-      <VideoContainer
-        style={{
-          ...videoStyle,
-          pointerEvents: websiteLoading ? "all" : "none",
-        }}>
-        {/* <Logo alt="logo" src={logo} /> */}
-        <Video autoPlay muted onEnded={() => setLandingFinishedPlaying(true)}>
-          <source src={loadingVideo} type="video/mp4" />
-        </Video>
-      </VideoContainer>
+      
+      {!isMobileDevice ?
+        <VideoContainer
+          style={{
+            ...videoStyle,
+            pointerEvents: websiteLoading ? "all" : "none",
+          }}>
+          <Video autoPlay muted onEnded={() => setLandingFinishedPlaying(true)}>
+            <source src={loadingVideo} type="video/mp4" />
+          </Video>
+        </VideoContainer>
+        : ''}
     </Root>
   );
 }

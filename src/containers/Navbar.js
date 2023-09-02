@@ -346,17 +346,21 @@ export default function Navbar({
  const handleHome = ()=>{
     document.location.href="/";
  }
+ const isMobileDevice =  /mobile|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|iphone|ipod|blackberry|opera|mini|windows\sce|palm|smartphone|iemobile|ipad|android|android 3.0|xoom|sch-i800|playbook|tablet|kindle/i.test(navigator.userAgent);
+
   return (
     <Container>
-      <BGVideo
-        ref={navRef}
-        muted
-        playsinline
-        loop
-        onPlay={(e) => console.log("playing nav", e)}
-        onLoadedData={() => setLoaded((loaded) => loaded + 1)}>
-        <source src={bg} type="video/mp4" />
-      </BGVideo>
+      {!isMobileDevice ?
+        <BGVideo
+          ref={navRef}
+          muted
+          playsinline
+          loop
+          onPlay={(e) => console.log("playing nav", e)}
+          onLoadedData={() => setLoaded((loaded) => loaded + 1)}>
+          <source src={bg} type="video/mp4" />
+        </BGVideo>
+        : ''}
       <Content>
         <Brand>
           <Title
