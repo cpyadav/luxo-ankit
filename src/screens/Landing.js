@@ -155,7 +155,9 @@ const ExploreContainer = styled.button`
   outline: none;
   border: none;
   cursor: pointer;
-
+  @media (max-width: 768px) {
+    bottom: 35%;
+  }
 `;
 
 const Explore = styled.p`
@@ -363,7 +365,7 @@ export default function Landing({
   const videoRefs = [videoRef1, videoRef2, videoRef3];
 
   useEffect(() => {
-    const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const isMobileDevice = /mobile|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|iphone|ipod|blackberry|opera|mini|windows\sce|palm|smartphone|iemobile|ipad|android|android 3.0|xoom|sch-i800|playbook|tablet|kindle/i.test(navigator.userAgent);
     if (isMobileDevice) {
 
     } else {
@@ -723,7 +725,7 @@ const handleVideoClick = (index) => {
      setDetailSlide(true)
      setindexDetail(index)
   };
-  const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  const isMobileDevice =  /mobile|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|iphone|ipod|blackberry|opera|mini|windows\sce|palm|smartphone|iemobile|ipad|android|android 3.0|xoom|sch-i800|playbook|tablet|kindle/i.test(navigator.userAgent);
   const handleCancel = () => {
     setDetailSlide(false)
  };

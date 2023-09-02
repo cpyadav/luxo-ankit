@@ -166,7 +166,6 @@ export default function Expertise() {
   }, [scrolled]);
 
   const listenScrollEvent = () => {
-    console.log(window.scrollY, height);
     if (window.scrollY > height * 1.4) {
       return setScrolled(true);
     }
