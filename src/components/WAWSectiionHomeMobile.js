@@ -144,19 +144,19 @@ export default function WAWSection({ data, flip, setLoaded, websiteLoading,isMob
   const { height } = useWindowDimensions();
   const [title1Style, title1Api] = useSpring(
     () => ({
-      from: { transform: "translate(0%, 50%)", opacity: 0 },
+      from: { transform: "translate(0%, 50%)", opacity: (isMobileDevice ? 1 : 0) },
     }),
     []
   );
   const [title2Style, title2Api] = useSpring(
     () => ({
-      from: { transform: "translate(0%, 50%)", opacity: 0 },
+      from: { transform: "translate(0%, 50%)", opacity: (isMobileDevice ? 1 : 0) },
     }),
     []
   );
   const [videoStyle, videoApi] = useSpring(
     () => ({
-      from: { transform: "translate(0%, 10%)", opacity: 0 },
+      from: { transform: "translate(0%, 10%)", opacity: (isMobileDevice ? 1 : 0) },
     }),
     []
   );
