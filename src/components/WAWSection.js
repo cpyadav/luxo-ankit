@@ -46,7 +46,7 @@ const Right = styled.div`
     margin: 0 auto;
     text-align: center;
     position: relative;
-    height: 74vh;
+    height: 54vh;
   }
 `;
 
@@ -199,7 +199,7 @@ export default function WAWSection({ data, flip, setLoaded, websiteLoading,isMob
     <Container>
       <Right>
 {isMobileDevice ? <VideoContainerMob>
-<img src={data.video} width={"100%"} height={"260px"} style={{borderRadius:"20px"}} />
+<img src={data.video} width={"100%"} height={"100%"} style={{borderRadius:"20px"}} />
 <VideoBrownOverlay />
 </VideoContainerMob>
    : <VideoContainer style={{ ...videoStyle }}>

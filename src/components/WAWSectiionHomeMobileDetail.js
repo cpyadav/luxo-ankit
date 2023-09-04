@@ -225,7 +225,7 @@ export default function WAWSectiionHomeMobileDetail({ data, flip, setLoaded, web
         {isMobileDevice ?
         <>
           <VideoContainerMobile>
-            <img src={data.video}  width={"100%"} height={"262px"} style={{borderRadius:"20px"}}  />
+            <img src={data.video}  width={"100%"} height={"100%"} style={{borderRadius:"20px"}}  />
             <VideoBrownOverlay />
           </VideoContainerMobile>
             <GoBack onClick={goBack}>
