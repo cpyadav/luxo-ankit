@@ -199,8 +199,8 @@ export default function WAWSection({ data, flip, setLoaded, websiteLoading,isMob
     <Container>
       <Right>
 {isMobileDevice ? <VideoContainerMob>
-<img src={data.video} width={"100%"} height={"100%"} style={{borderRadius:"20px"}} />
-<VideoBrownOverlay />
+<img src={data.video} width={"100%"} height={"80%"} style={{borderRadius:"20px"}} />
+{/* <VideoBrownOverlay /> */}
 </VideoContainerMob>
    : <VideoContainer style={{ ...videoStyle }}>
           <Video

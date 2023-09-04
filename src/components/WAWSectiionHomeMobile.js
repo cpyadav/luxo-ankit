@@ -46,7 +46,7 @@ const Right = styled.div`
     margin: 0 auto;
     text-align: center;
     position: relative;
-    height: 46vh;
+    height: auto;
   }
 `;
 
@@ -134,7 +134,9 @@ const Title = styled(animated.p)`
   @media (max-width: 768px) {
     font-size: 2em; 
     text-align: center; 
-    
+    color: #fff;
+    font-family: "Giovanna";
+    font-size: 2em !important;
   }
 `;
 
@@ -210,7 +212,7 @@ export default function WAWSection({ data, flip, setLoaded, websiteLoading,isMob
 
           <VideoContainerMobile onClick={handleVideo}>
             <img src={data.video} width={"100%"} height={"100%"} style={{borderRadius:"20px"}} />
-            <VideoBrownOverlay />
+            {/* <VideoBrownOverlay /> */}
             
           </VideoContainerMobile>
           :

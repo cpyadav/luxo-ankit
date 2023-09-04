@@ -130,6 +130,9 @@ const Title = styled(animated.p)`
   @media (max-width: 768px) {
     font-size: 2em; 
     text-align: center; 
+    color: #fff;
+    font-family: "Giovanna";
+    font-size: 2em !im[ortant];
     
   }
 `;
@@ -225,8 +228,8 @@ export default function WAWSectiionHomeMobileDetail({ data, flip, setLoaded, web
         {isMobileDevice ?
         <>
           <VideoContainerMobile>
-            <img src={data.video}  width={"100%"} height={"100%"} style={{borderRadius:"20px"}}  />
-            <VideoBrownOverlay />
+            <img src={data.video}  width={"100%"} height={"80%"} style={{borderRadius:"20px"}}  />
+            {/* <VideoBrownOverlay /> */}
           </VideoContainerMobile>
             <GoBack onClick={goBack}>
               ⟵ Go Back
