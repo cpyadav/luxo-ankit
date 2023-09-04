@@ -197,7 +197,15 @@ export default function ContactUs({ websiteLoading, setShowCover,isMobileDevice 
     },
   ];
   //const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  const handleOpenEmail = () => {
+    const emailAddress = 'inquiry@luxeolabs.com';
 
+    // Construct the mailto link
+    const mailtoLink = `mailto:${emailAddress}`;
+
+    // Open the email client with the mailto link
+    window.location.href = mailtoLink;
+  };
   return (
     <Container>
       <Left>
@@ -226,7 +234,7 @@ export default function ContactUs({ websiteLoading, setShowCover,isMobileDevice 
           </Row>
         ))}
 
-        <Book cta style={{ ...bookStyle }}>
+        <Book cta style={{ ...bookStyle }} onClick={handleOpenEmail} >
         Talk to us ⟶
         </Book>
       </Right>

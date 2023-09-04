@@ -246,6 +246,10 @@ if(isMobileDevice){
       text: "Contact us",
       link: "/contact-us",
     },
+    {
+      text: "Talk to us",
+      link: "mailto:inquiry@luxeolabs.com",
+    },
     // {
     //   text: "Blog",
     //   link: "/blog", // Replace this with the actual link for the Blog page when available.
@@ -264,7 +268,7 @@ if(isMobileDevice){
     },
     {
       text: "Talk to us",
-      link: "",
+      link: "mailto:inquiry@luxeolabs.com",
     },
   ];
 }
@@ -347,7 +351,15 @@ export default function Navbar({
     document.location.href="/";
  }
  const isMobileDevice =  /mobile|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|iphone|ipod|blackberry|opera|mini|windows\sce|palm|smartphone|iemobile|ipad|android|android 3.0|xoom|sch-i800|playbook|tablet|kindle/i.test(navigator.userAgent);
+ const handleOpenEmail = () => {
+  const emailAddress = 'inquiry@luxeolabs.com';
 
+  // Construct the mailto link
+  const mailtoLink = `mailto:${emailAddress}`;
+
+  // Open the email client with the mailto link
+  window.location.href = mailtoLink;
+};
   return (
     <Container>
       {!isMobileDevice ?
@@ -390,7 +402,12 @@ export default function Navbar({
             <MenuItem
               style={{ ...menuItemStyles[index] }}
               onClick={() => {
-                onAction();
+                if (item.link == "") {
+                  handleOpenEmail();
+                }else{
+                  onAction();
+                }
+                
               }}
               key={item.text}
               smooth

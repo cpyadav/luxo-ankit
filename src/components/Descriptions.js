@@ -144,7 +144,15 @@ export default function Descriptions({ animate, flip, small, data, unset }) {
       });
     }
   }, [unset]);
+  const handleOpenEmail = () => {
+    const emailAddress = 'inquiry@luxeolabs.com';
 
+    // Construct the mailto link
+    const mailtoLink = `mailto:${emailAddress}`;
+
+    // Open the email client with the mailto link
+    window.location.href = mailtoLink;
+  };
   return data ? (
     <Container small={small}>
       {data.descriptions.map((item, index) => (
@@ -158,7 +166,7 @@ export default function Descriptions({ animate, flip, small, data, unset }) {
         </DescriptionContainer>
       ))}
       <DescriptionContainer small={small} flip={flip}>
-        <Book cta style={{ ...bookStyle }}>
+        <Book cta style={{ ...bookStyle }} onClick={handleOpenEmail}>
         Talk to us ⟶
         </Book>
       </DescriptionContainer>
