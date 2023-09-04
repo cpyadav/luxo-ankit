@@ -42,7 +42,7 @@ const Description = styled(animated.p)`
     font-size: ${(props) => (props.small ? "1.2em" : "1.3em")}; 
     text-align: center; 
     margin-left: 0; 
-    margin-top: 10px; 
+    margin-top: 5px; 
   }
 `;
 

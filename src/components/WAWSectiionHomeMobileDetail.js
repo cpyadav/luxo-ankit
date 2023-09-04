@@ -154,7 +154,7 @@ const GoBack = styled(animated.button)`
   z-index:99999;
   @media (max-width: 768px) {
     z-index:99999;
-    bottom: -7.5%;
+    bottom: 2%;
   }
  
 `;

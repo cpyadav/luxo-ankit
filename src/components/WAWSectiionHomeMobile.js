@@ -43,7 +43,7 @@ const Right = styled.div`
   height: 100vh;
   @media (max-width: 768px) {
     width: 99%;
-    margin: 0 auto;
+    margin: 6px auto;
     text-align: center;
     position: relative;
     height: auto;
