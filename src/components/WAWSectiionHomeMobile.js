@@ -46,7 +46,7 @@ const Right = styled.div`
     margin: 0 auto;
     text-align: center;
     position: relative;
-    height: 34vh;
+    height: 46vh;
   }
 `;
 

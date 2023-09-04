@@ -29,7 +29,7 @@ const Left = styled.div`
   height: 100vh;
   @media (max-width: 768px) {
     width: 100%; 
-    height: 38vh;
+    height: 50vh;
   }
 `;
 
@@ -46,7 +46,7 @@ const Right = styled.div`
     margin: 0 auto;
     text-align: center;
     position: relative;
-    height: 44vh;
+    height: 74vh;
   }
 `;
 

@@ -47,7 +47,7 @@ const Right = styled.div`
     margin: 0 auto;
     text-align: center;
     position: relative;
-    height: 42vh;
+    height: 46vh;
   }
 `;
 
@@ -149,6 +149,10 @@ const GoBack = styled(animated.button)`
   cursor: pointer;
   background: none;
   z-index:99999;
+  @media (max-width: 768px) {
+    z-index:99999;
+    bottom: -7.5%;
+  }
  
 `;
 export default function WAWSectiionHomeMobileDetail({ data, flip, setLoaded, websiteLoading,isMobileDevice,handleCancel }) {
@@ -224,9 +228,9 @@ export default function WAWSectiionHomeMobileDetail({ data, flip, setLoaded, web
             <img src={data.video}  width={"100%"} height={"262px"} style={{borderRadius:"20px"}}  />
             <VideoBrownOverlay />
           </VideoContainerMobile>
-          <GoBack  onClick={goBack}>
-          ⟵ Go Back
-    </GoBack>
+            <GoBack onClick={goBack}>
+              ⟵ Go Back
+            </GoBack>
     </>
           :
           <VideoContainer style={{ ...videoStyle }}>
