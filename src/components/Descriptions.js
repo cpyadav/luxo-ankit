@@ -43,6 +43,8 @@ const Description = styled(animated.p)`
     text-align: center; 
     margin-left: 0; 
     margin-top: 10px; 
+    transform: translate(0%,0%) !important;
+    opacity: 1 !important;
   }
 `;
 

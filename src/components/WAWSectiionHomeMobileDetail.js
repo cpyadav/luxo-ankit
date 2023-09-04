@@ -47,7 +47,7 @@ const Right = styled.div`
     margin: 0 auto;
     text-align: center;
     position: relative;
-    height: 70vh;
+    height: 42vh;
   }
 `;
 
@@ -65,7 +65,20 @@ const VideoContainer = styled(animated.div)`
     margin-left: 3%;
   }
 `;
-
+const VideoContainerMobile = styled(animated.div)`
+  position: relative;
+  height: 60%;
+  width: 60%;
+  margin-top: 4em;
+  @media (max-width: 768px) {
+    width: 95%;
+    height: 91%;
+    margin-top: 2em;
+    text-align: center;
+    margin: 0 auto;
+    margin-left: 3%;
+  }
+`;
 const Video = styled(animated.video)`
   height: 100%;
   width: 100%;
@@ -135,9 +148,10 @@ const GoBack = styled(animated.button)`
   letter-spacing: 0.2em;
   cursor: pointer;
   background: none;
+  z-index:99999;
  
 `;
-export default function WAWSectiionHomeMobileDetail({ data, flip, setLoaded, websiteLoading,handleCancel }) {
+export default function WAWSectiionHomeMobileDetail({ data, flip, setLoaded, websiteLoading,isMobileDevice,handleCancel }) {
   const { height } = useWindowDimensions();
   const [title1Style, title1Api] = useSpring(
     () => ({
@@ -203,21 +217,31 @@ export default function WAWSectiionHomeMobileDetail({ data, flip, setLoaded, web
     <Container>
        
       <Right>
-      <GoBack  onClick={goBack}>
-         ⟵ Go Back
-   </GoBack>
-        <VideoContainer style={{ ...videoStyle }}>
-          <Video
-            autoPlay
-            muted
-            loop
-            alt={`${data.title[0]} ${data.title[1]}`}
-            onLoadedData={() => setLoaded((loaded) => loaded + 1)}>
-            <source src={data.video} type="video/mp4" />
-          </Video>
-          <VideoBrownOverlay />
-          <VideoGradientOverlay />
-        </VideoContainer>
+      
+        {isMobileDevice ?
+        <>
+          <VideoContainerMobile>
+            <img src={data.video}  width={"100%"} height={"262px"} style={{borderRadius:"20px"}}  />
+            <VideoBrownOverlay />
+          </VideoContainerMobile>
+          <GoBack  onClick={goBack}>
+          ⟵ Go Back
+    </GoBack>
+    </>
+          :
+          <VideoContainer style={{ ...videoStyle }}>
+            <Video
+              autoPlay
+              muted
+              loop
+              alt={`${data.title[0]} ${data.title[1]}`}
+              onLoadedData={() => setLoaded((loaded) => loaded + 1)}>
+              <source src={data.video} type="video/mp4" />
+            </Video>
+            <VideoBrownOverlay />
+            <VideoGradientOverlay />
+          </VideoContainer>
+        }
         <Titles>
           <Title style={{ ...title1Style }}>{data.title[0]}</Title>
           <Title style={{ ...title2Style }}>{data.title[1]}</Title>

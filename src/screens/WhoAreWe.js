@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import theme from "../utils/theme.js";
 import masterperfumers from "../assets/masterperfumers.mp4";
+import masterperfumersMob from "../assets/fineperfumery.png";
 import scienceofperfumery from "../assets/scienceofperfumery.mp4";
+import scienceofperfumeryMob from "../assets/scienceofperfumery.png";
 import WAWSection from "../components/WAWSection.js";
 import Expertise from "../components/Expertise.js";
 
@@ -18,7 +20,7 @@ const Container = styled.div`
   }
 `;
 
-export default function WhoAreWe({ setLoaded, websiteLoading, setShowCover }) {
+export default function WhoAreWe({ setLoaded, websiteLoading, setShowCover,isMobileDevice }) {
   useEffect(() => {
     setShowCover(false);
   }, []);
@@ -36,7 +38,7 @@ export default function WhoAreWe({ setLoaded, websiteLoading, setShowCover }) {
         "industry, which is our specialty.",
       ],
       title: ["Master", "Perfumers"],
-      video: masterperfumers,
+      video: isMobileDevice ? masterperfumersMob :  masterperfumers,
     },
     {
       descriptions: [
@@ -52,7 +54,7 @@ export default function WhoAreWe({ setLoaded, websiteLoading, setShowCover }) {
         "perfume already on the market.",
       ],
       title: ["Science of", "Fragrance"],
-      video: scienceofperfumery,
+      video: isMobileDevice ?  scienceofperfumeryMob : scienceofperfumery,
     },
   ];
 
@@ -62,12 +64,14 @@ export default function WhoAreWe({ setLoaded, websiteLoading, setShowCover }) {
         data={sections[0]}
         setLoaded={setLoaded}
         websiteLoading={websiteLoading}
+        isMobileDevice ={isMobileDevice}
       />
       <WAWSection
         data={sections[1]}
         flip
         setLoaded={setLoaded}
         websiteLoading={websiteLoading}
+        isMobileDevice ={isMobileDevice}
       />
       <Expertise />
     </Container>

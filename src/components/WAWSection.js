@@ -46,11 +46,25 @@ const Right = styled.div`
     margin: 0 auto;
     text-align: center;
     position: relative;
-    height: 70vh;
+    height: 44vh;
   }
 `;
 
 const VideoContainer = styled(animated.div)`
+  position: relative;
+  height: 60%;
+  width: 60%;
+  margin-top: 4em;
+  @media (max-width: 768px) {
+    width: 95%;
+    height: 70%;
+    margin-top: 2em;
+    text-align: center;
+    margin: 0 auto;
+    margin-left: 3%;
+  }
+`;
+const VideoContainerMob = styled(animated.div)`
   position: relative;
   height: 60%;
   width: 60%;
@@ -80,6 +94,7 @@ const VideoBrownOverlay = styled.div`
   opacity: 0;
   @media (max-width: 768px) {
     opacity: 0.5; 
+    border-radius:20px;
   }
 `;
 
@@ -120,7 +135,7 @@ const Title = styled(animated.p)`
   }
 `;
 
-export default function WAWSection({ data, flip, setLoaded, websiteLoading }) {
+export default function WAWSection({ data, flip, setLoaded, websiteLoading,isMobileDevice }) {
   const { height } = useWindowDimensions();
   const [title1Style, title1Api] = useSpring(
     () => ({
@@ -183,7 +198,11 @@ export default function WAWSection({ data, flip, setLoaded, websiteLoading }) {
   return (
     <Container>
       <Right>
-        <VideoContainer style={{ ...videoStyle }}>
+{isMobileDevice ? <VideoContainerMob>
+<img src={data.video} width={"100%"} height={"260px"} style={{borderRadius:"20px"}} />
+<VideoBrownOverlay />
+</VideoContainerMob>
+   : <VideoContainer style={{ ...videoStyle }}>
           <Video
             autoPlay
             muted
@@ -194,7 +213,9 @@ export default function WAWSection({ data, flip, setLoaded, websiteLoading }) {
           </Video>
           <VideoBrownOverlay />
           <VideoGradientOverlay />
-        </VideoContainer>
+        </VideoContainer>}
+        
+
         <Titles>
           <Title style={{ ...title1Style }}>{data.title[0]}</Title>
           <Title style={{ ...title2Style }}>{data.title[1]}</Title>

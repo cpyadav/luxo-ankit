@@ -2,9 +2,12 @@ import React, { Fragment, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import theme from "../utils/theme.js";
 import homecare from "../assets/homecare.mp4";
+import homecareMob from "../assets/homecare.png";
 import personalcare from "../assets/personalcare.mp4";
+import personalcareMob from "../assets/personalcare.png";
 import image from "../assets/logo.png";
 import fineperfumery from "../assets/fineperfumery.mp4";
+import fineperfumeryMob from "../assets/finefragrances.png";
 import { animated, easings, useSpring } from "@react-spring/web";
 import Titles from "../components/Titles.js";
 import Descriptions from "../components/Descriptions.js";
@@ -13,6 +16,7 @@ import { ChevronDown } from "lucide-react";
 
 import WAWSectiionHomeMobile from "../components/WAWSectiionHomeMobile.js";
 import WAWSectiionHomeMobileDetail from "../components/WAWSectiionHomeMobileDetail.js";
+const isMobileDevice = /mobile|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|iphone|ipod|blackberry|opera|mini|windows\sce|palm|smartphone|iemobile|ipad|android|android 3.0|xoom|sch-i800|playbook|tablet|kindle/i.test(navigator.userAgent);
 
 
 const Container = styled(animated.div)`
@@ -191,7 +195,7 @@ const GoBack = styled(animated.button)`
 const features = [
   {
     id: "homecare",
-    video: homecare,
+    video: isMobileDevice ? homecareMob : homecare,
     title: ["Home", "Care"],
     descriptions: [
       "We provide one-of-a-kind fragrance options,",
@@ -211,7 +215,7 @@ const features = [
   },
   {
     id: "personalcare",
-    video: personalcare,
+    video: isMobileDevice ? personalcareMob : personalcare,
     title: ["Personal", "Care"],
     descriptions: [
       "By pushing the envelope, our talented ",
@@ -228,7 +232,7 @@ const features = [
   },
   {
     id: "fineperfumery",
-    video: fineperfumery,
+    video: isMobileDevice ?  fineperfumeryMob :fineperfumery ,
     title: ["Fine", "Fragrances"],
     descriptions: [
       "Our extensive fragrance library allows us to",
@@ -245,6 +249,7 @@ const features = [
   },
 ];
 
+
 const CAROUSEL_DURATION = 900;
 const CAROUSEL_EASING = easings.easeOutSine;
 const SELECT_DURATION = 1200;
@@ -258,6 +263,7 @@ export default function Landing({
   setShowCover,
   selectedSlide,
   setSelectedSlide,
+  isMobileDevice,
 }) {
   const videoRef1 = useRef();
   const videoRef2 = useRef();
@@ -365,7 +371,6 @@ export default function Landing({
   const videoRefs = [videoRef1, videoRef2, videoRef3];
 
   useEffect(() => {
-    const isMobileDevice = /mobile|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|iphone|ipod|blackberry|opera|mini|windows\sce|palm|smartphone|iemobile|ipad|android|android 3.0|xoom|sch-i800|playbook|tablet|kindle/i.test(navigator.userAgent);
     if (isMobileDevice) {
 
     } else {
@@ -725,7 +730,7 @@ const handleVideoClick = (index) => {
      setDetailSlide(true)
      setindexDetail(index)
   };
-  const isMobileDevice =  /mobile|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|iphone|ipod|blackberry|opera|mini|windows\sce|palm|smartphone|iemobile|ipad|android|android 3.0|xoom|sch-i800|playbook|tablet|kindle/i.test(navigator.userAgent);
+ // const isMobileDevice =  /mobile|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|iphone|ipod|blackberry|opera|mini|windows\sce|palm|smartphone|iemobile|ipad|android|android 3.0|xoom|sch-i800|playbook|tablet|kindle/i.test(navigator.userAgent);
   const handleCancel = () => {
     setDetailSlide(false)
  };
@@ -740,6 +745,7 @@ const handleVideoClick = (index) => {
             data={features[indexDetail]}
             setLoaded={setLoaded}
              websiteLoading={landMobile}
+            isMobileDevice ={isMobileDevice}
             handleCancel={handleCancel}
           /> :
           <>
@@ -747,21 +753,27 @@ const handleVideoClick = (index) => {
             data={features[0]}
             setLoaded={setLoaded}
              websiteLoading={landMobile}
-            handleVideoClick={()=>handleVideoClick(0) }
+             isMobileDevice ={isMobileDevice}
+             handleVideoClick={()=>handleVideoClick(0) }
+            
           />
           <WAWSectiionHomeMobile
             data={features[1]}
             flip
             setLoaded={setLoaded}
             websiteLoading={landMobile}
+            isMobileDevice ={isMobileDevice}
             handleVideoClick={()=>handleVideoClick(1)}
+            
           />
            <WAWSectiionHomeMobile
             data={features[2]}
             flip
             setLoaded={setLoaded}
              websiteLoading={landMobile}
+             isMobileDevice ={isMobileDevice}
             handleVideoClick={()=>handleVideoClick(2)}
+            
           /></> }
         </ContainerMobile>
 

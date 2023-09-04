@@ -64,7 +64,20 @@ const VideoContainer = styled(animated.div)`
     margin-left: 3%;
   }
 `;
-
+const VideoContainerMobile = styled(animated.div)`
+  position: relative;
+  height: 60%;
+  width: 60%;
+  margin-top: 4em;
+  @media (max-width: 768px) {
+    width: 95%;
+    height: 91%;
+    margin-top: 2em;
+    text-align: center;
+    margin: 0 auto;
+    margin-left: 3%;
+  }
+`;
 const Video = styled(animated.video)`
   height: 100%;
   width: 100%;
@@ -125,7 +138,7 @@ const Title = styled(animated.p)`
   }
 `;
 
-export default function WAWSection({ data, flip, setLoaded, websiteLoading,handleVideoClick }) {
+export default function WAWSection({ data, flip, setLoaded, websiteLoading,isMobileDevice,handleVideoClick }) {
   const { height } = useWindowDimensions();
   const [title1Style, title1Api] = useSpring(
     () => ({
@@ -179,7 +192,7 @@ export default function WAWSection({ data, flip, setLoaded, websiteLoading,handl
     }
   };
   const handleVideo = () => {
-    const dd = handleVideoClick;
+    //const dd = handleVideoClick;
     handleVideoClick();
   };
   useEffect(() => {
@@ -193,18 +206,27 @@ export default function WAWSection({ data, flip, setLoaded, websiteLoading,handl
     <Container>
      
       <Right>
-        <VideoContainer style={{ ...videoStyle }} onClick={handleVideo}>
-          <Video
-            autoPlay
-            muted
-            loop
-            alt={`${data.title[0]} ${data.title[1]}`}
-            onLoadedData={() => setLoaded((loaded) => loaded + 1)}>
-            <source src={data.video} type="video/mp4" />
-          </Video>
-          <VideoBrownOverlay />
-          <VideoGradientOverlay />
-        </VideoContainer>
+        {isMobileDevice ?
+
+          <VideoContainerMobile onClick={handleVideo}>
+            <img src={data.video} width={"100%"} height={"261px"} style={{borderRadius:"20px"}} />
+            <VideoBrownOverlay />
+            
+          </VideoContainerMobile>
+          :
+          <VideoContainer style={{ ...videoStyle }} onClick={handleVideo}>
+            <Video
+              autoPlay
+              muted
+              loop
+              alt={`${data.title[0]} ${data.title[1]}`}
+              onLoadedData={() => setLoaded((loaded) => loaded + 1)}>
+              <source src={data.video} type="video/mp4" />
+            </Video>
+            <VideoBrownOverlay />
+            <VideoGradientOverlay />
+          </VideoContainer>
+        }
         <Titles>
           <Title style={{ ...title1Style }}>{data.title[0]}</Title>
           <Title style={{ ...title2Style }}>{data.title[1]}</Title>

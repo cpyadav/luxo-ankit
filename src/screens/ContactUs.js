@@ -68,6 +68,8 @@ const Description = styled(animated.p)
     width: 100%;
     margin-left: 15px;
     text-align: left; /* You might want to adjust text alignment for small devices */
+    transform: translate(0%, 0%) !important;
+    opacity: 1 !important;
   }
 `;
 
@@ -123,16 +125,16 @@ const AnimatedMapPin = animated(MapPin);
 const AnimatedPhone = animated(Phone);
 const AnimatedMail = animated(Mail);
 
-export default function ContactUs({ websiteLoading, setShowCover }) {
+export default function ContactUs({ websiteLoading, setShowCover,isMobileDevice }) {
   const [descriptionStyle, descriptionApi] = useSpring(
     () => ({
-      from: { transform: "translate(0%, 10%)", opacity: 0 },
+      from: { transform: "translate(0%, 10%)", opacity: (isMobileDevice ? 1 : 0) },
     }),
     []
   );
   const [bookStyle, bookApi] = useSpring(
     () => ({
-      from: { transform: "translate(0%, 50%)", opacity: 0 },
+      from: { transform: "translate(0%, 50%)", opacity: (isMobileDevice ? 1 : 0) },
     }),
     []
   );
@@ -194,7 +196,7 @@ export default function ContactUs({ websiteLoading, setShowCover }) {
       ),
     },
   ];
-  const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  //const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
   return (
     <Container>

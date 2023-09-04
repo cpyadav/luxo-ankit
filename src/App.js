@@ -58,6 +58,7 @@ function App() {
     //   navRef.current.playbackRate = 1;
     // }, duration);
   };
+  const isMobileDevice =  /mobile|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|iphone|ipod|blackberry|opera|mini|windows\sce|palm|smartphone|iemobile|ipad|android|android 3.0|xoom|sch-i800|playbook|tablet|kindle/i.test(navigator.userAgent);
 
   return (
     <BrowserRouter basename="/">
@@ -98,6 +99,7 @@ function App() {
                 setShowCover={setShowCover}
                 selectedSlide={selectedSlide}
                 setSelectedSlide={setSelectedSlide}
+                isMobileDevice={isMobileDevice}
               />
             }
           />
@@ -110,6 +112,7 @@ function App() {
                 setLoaded={setLoaded}
                 websiteLoading={websiteLoading}
                 setShowCover={setShowCover}
+                isMobileDevice={isMobileDevice}
               />
             }
           />
@@ -122,6 +125,7 @@ function App() {
                 setLoaded={setLoaded}
                 websiteLoading={websiteLoading}
                 setShowCover={setShowCover}
+                isMobileDevice={isMobileDevice}
               />
             }
           />
