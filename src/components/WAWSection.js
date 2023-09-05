@@ -196,53 +196,109 @@ export default function WAWSection({ data, flip, setLoaded, websiteLoading,isMob
   }, []);
 
   return (
-    <Container>
-      <Right>
-{isMobileDevice ? <VideoContainerMob>
-<img src={data.video} width={"100%"} height={"80%"} style={{borderRadius:"20px"}} />
-{/* <VideoBrownOverlay /> */}
-</VideoContainerMob>
-   : <VideoContainer style={{ ...videoStyle }}>
-          <Video
-            autoPlay
-            muted
-            loop
-            alt={`${data.title[0]} ${data.title[1]}`}
-            onLoadedData={() => setLoaded((loaded) => loaded + 1)}>
-            <source src={data.video} type="video/mp4" />
-          </Video>
-          <VideoBrownOverlay />
-          <VideoGradientOverlay />
-        </VideoContainer>}
-        
+    <>
+    
+   
+  {isMobileDevice ?
+       <Container>
+       <Right>
+ {isMobileDevice ? <VideoContainerMob>
+ <img src={data.video} width={"100%"} height={"80%"} style={{borderRadius:"20px"}} />
+ {/* <VideoBrownOverlay /> */}
+ </VideoContainerMob>
+    : 
+    
+    <VideoContainer style={{ ...videoStyle }}>
+           <Video
+             autoPlay
+             muted
+             loop
+             alt={`${data.title[0]} ${data.title[1]}`}
+             onLoadedData={() => setLoaded((loaded) => loaded + 1)}>
+             <source src={data.video} type="video/mp4" />
+           </Video>
+           <VideoBrownOverlay />
+           <VideoGradientOverlay />
+         </VideoContainer>}
+         
+ 
+         <Titles>
+           <Title style={{ ...title1Style }}>{data.title[0]}</Title>
+           <Title style={{ ...title2Style }}>{data.title[1]}</Title>
+         </Titles>
+       </Right>
+       {!flip && (
+         <Left>
+           <Descriptions
+             small
+             data={data}
+             unset={false}
+             animate={!websiteLoading}
+           />
+         </Left>
+       )}
+       
+       {flip && (
+         <Left flip>
+           <Descriptions
+             flip
+             small
+             data={data}
+             unset={false}
+             animate={!websiteLoading && scrolled}
+           />
+         </Left>
+       )}
+     </Container>
+   
+    : 
+        <Container>
+          {!flip && (
+            <Left>
+              <Descriptions
+                small
+                data={data}
+                unset={false}
+                animate={!websiteLoading}
+              />
+            </Left>
+          )}
+          <Right>
+          
+            <VideoContainer style={{ ...videoStyle }}>
+              <Video
+                autoPlay
+                muted
+                loop
+                alt={`${data.title[0]} ${data.title[1]}`}
+                onLoadedData={() => setLoaded((loaded) => loaded + 1)}>
+                <source src={data.video} type="video/mp4" />
+              </Video>
+              <VideoBrownOverlay />
+              <VideoGradientOverlay />
+            </VideoContainer>
+            <Titles>
+              <Title style={{ ...title1Style }}>{data.title[0]}</Title>
+              <Title style={{ ...title2Style }}>{data.title[1]}</Title>
+            </Titles>
+          </Right>
+          
 
-        <Titles>
-          <Title style={{ ...title1Style }}>{data.title[0]}</Title>
-          <Title style={{ ...title2Style }}>{data.title[1]}</Title>
-        </Titles>
-      </Right>
-      {!flip && (
-        <Left>
-          <Descriptions
-            small
-            data={data}
-            unset={false}
-            animate={!websiteLoading}
-          />
-        </Left>
-      )}
-      
-      {flip && (
-        <Left flip>
-          <Descriptions
-            flip
-            small
-            data={data}
-            unset={false}
-            animate={!websiteLoading && scrolled}
-          />
-        </Left>
-      )}
-    </Container>
+          {flip && (
+            <Left flip>
+              <Descriptions
+                flip
+                small
+                data={data}
+                unset={false}
+                animate={!websiteLoading && scrolled}
+              />
+            </Left>
+          )}
+        </Container>  
+    
+    }
+     </>
+   
   );
 }
