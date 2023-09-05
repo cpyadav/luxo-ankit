@@ -85,11 +85,11 @@ const Social = styled.img`
 `;
 
 const socials = [
-  {
-    name: "Instagram",
-    image: instagram,
-    link: "https://www.instagram.com",
-  },
+  // {
+  //   name: "Instagram",
+  //   image: instagram,
+  //   link: "https://www.instagram.com",
+  // },
   {
     name: "LinkedIn",
     image: linkedin,
