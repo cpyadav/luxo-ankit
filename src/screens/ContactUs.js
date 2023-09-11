@@ -176,7 +176,7 @@ export default function ContactUs({ websiteLoading, setShowCover,isMobileDevice 
       ),
     },
     {
-      text: `+971 65218859​`,
+      text: `+971 6 5218859​`,
       icon: () => (
         <AnimatedPhone
           style={{ ...descriptionStyle }}
@@ -186,7 +186,7 @@ export default function ContactUs({ websiteLoading, setShowCover,isMobileDevice 
       ),
     },
     {
-      text: `info@luxuryaromatics.com​`,
+      text: `inquiry@luxeolabs.com`,
       icon: () => (
         <AnimatedMail
           style={{ ...descriptionStyle }}
