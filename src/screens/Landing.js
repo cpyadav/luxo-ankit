@@ -198,6 +198,23 @@ const features = [
     video: isMobileDevice ? homecareMob : homecare,
     title: ["Home", "Care"],
     descriptions: [
+      "Our extensive fragrance library allows us to",
+      "tailor our solutions to meet the needs of niche ",
+      "markets and consumer preferences for air care,",
+      "laundry care, and other functional items.",
+      "Our plans are grounded on client and consumer needs",
+      "and market realities, but we always push the",
+      "envelope to surprise and delight them.",
+      "Cleaners for the Kitchen and Bathroom, as",
+      "well as All- Purpose Cleaners, Fabric Softeners,",
+      " Air Care Products, Laundry Detergents, and Dishwashers.",
+    ], 
+  },
+  {
+    id: "personalcare",
+    video: isMobileDevice ? personalcareMob : personalcare,
+    title: ["Personal", "Care"],
+    descriptions: [
       "We provide one-of-a-kind fragrance options,",
       " for hair body, and skin care products thanks ",
       "to our broad fragrance collection and innovative",
@@ -210,13 +227,12 @@ const features = [
       "Personal Hygiene Products Like Shampoo",
       "Conditioner, Body Wash, Face Wash, Exfoliants",
       ",Towelettes, and Deodorant.",
-    ],
-   
+    ], 
   },
   {
-    id: "personalcare",
-    video: isMobileDevice ? personalcareMob : personalcare,
-    title: ["Personal", "Care"],
+    id: "fineperfumery",
+    video: isMobileDevice ?  fineperfumeryMob :fineperfumery ,
+    title: ["Fine", "Fragrances"],
     descriptions: [
       "By pushing the envelope, our talented ",
       "perfumers from around the world have come ",
@@ -228,23 +244,6 @@ const features = [
       "variety of hand-picked premium ingredients sourced",
       "from throughout the world, and state-of-the-art",
       "Luxeo technologies."
-    ],
-  },
-  {
-    id: "fineperfumery",
-    video: isMobileDevice ?  fineperfumeryMob :fineperfumery ,
-    title: ["Fine", "Fragrances"],
-    descriptions: [
-      "Our extensive fragrance library allows us to",
-      "tailor our solutions to meet the needs of niche ",
-      "markets and consumer preferences for air care,",
-      "laundry care, and other functional items.",
-      "Our plans are grounded on client and consumer needs",
-      "and market realities, but we always push the",
-      "envelope to surprise and delight them.",
-      "Cleaners for the Kitchen and Bathroom, as",
-      "well as All- Purpose Cleaners, Fabric Softeners,",
-      " Air Care Products, Laundry Detergents, and Dishwashers.",
     ],
   },
 ];
